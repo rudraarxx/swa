@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -8,7 +8,6 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { useGravity } from "@/store/useGravity";
-import { cn } from "@/lib/utils";
 import { Menu, X, Instagram, Linkedin, Facebook } from "lucide-react"; // Assuming these icons exist
 import Link from "next/link";
 import { BrandLogo } from "@/icons/brandLogo";

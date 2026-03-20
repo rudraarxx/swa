@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "@/components/motion/reveal";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -29,9 +28,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
              </div>
            </div>
         </motion.div>
-        
-        <div className="absolute inset-0 bg-gradient-to-t from-canvas to-transparent z-10" />
-
+        <div className="absolute inset-0 bg-linear-to-t from-canvas to-transparent z-10" />
         <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 z-20">
           <Link href="/" className="inline-flex items-center gap-2 text-structure/70 hover:text-primary mb-8 transition-colors">
             <ArrowLeft className="w-4 h-4" />
@@ -57,7 +54,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
            <Reveal>
              <p>
                The concept revolves around the interplay of heavy stone structures and light, ephemeral glass partitions. 
-               We wanted to challenge the notion that "grounded" means "static".
+               We wanted to challenge the notion that &quot;grounded&quot; means &quot;static&quot;.
              </p>
            </Reveal>
            <Reveal delay={0.3}>

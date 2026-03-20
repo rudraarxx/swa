@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "The Earth House",
+    "category": "Residential",
+    "location": "Kerala, India",
+    "year": "2023",
+    "image": "https://drive.google.com/file/d/1Xy1A_placeholder1/view",
+    "slug": "earth-house",
+    "clientName": "The Varma Family",
+    "description": "A sustainable residence built using rammed earth and local materials, harmonizing with the tropical landscape.",
+    "tags": ["Sustainable", "Rammed Earth", "Tropical"]
+  },
+  {
+    "id": 2,
+    "title": "Urban Void",
+    "category": "Commercial",
+    "location": "Bangalore, India",
+    "year": "2024",
+    "image": "https://drive.google.com/file/d/1Xy1A_placeholder2/view",
+    "slug": "urban-void",
+    "clientName": "Nexus Developments",
+    "description": "A contemporary office space designed around an internal atrium that brings natural light into deep floor plates.",
+    "tags": ["Contemporary", "Office", "Minimalist"]
+  },
+  {
+    "id": 3,
+    "title": "Silence Pavilion",
+    "category": "Landscape",
+    "location": "Pune, India",
+    "year": "2022",
+    "image": "https://drive.google.com/file/d/1Xy1A_placeholder3/view",
+    "slug": "silence-pavilion",
+    "clientName": "Pune Municipal Corp",
+    "description": "A public pavilion designed for contemplation, featuring a series of concrete fins that play with light and shadow.",
+    "tags": ["Public", "Pavilion", "Brutalist"]
+  },
+  {
+    "id": 4,
+    "title": "Canvas Studio",
+    "category": "Interior",
+    "location": "Mumbai, India",
+    "year": "2023",
+    "image": "https://drive.google.com/file/d/1Xy1A_placeholder4/view",
+    "slug": "canvas-studio",
+    "clientName": "Anita Desai",
+    "description": "A minimalist art studio transformed from an old industrial warehouse, prioritizing neutral surfaces and northern light.",
+    "tags": ["Studio", "Renovation", "Minimalist"]
+  }
+]
