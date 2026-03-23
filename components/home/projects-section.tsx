@@ -36,20 +36,24 @@ export function ProjectsSection() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 md:gap-y-24">
-          {projects.map((project, index) => (
+          {projects.slice(0, 4).map((project, index) => (
             <div key={project.id} className={index % 2 === 1 ? "md:mt-24" : ""}>
               <ProjectCard project={project} index={index} />
             </div>
           ))}
         </div>
 
-        {/* Mobile View All Button */}
-        <div className="md:hidden flex justify-center pt-8">
+        {/* View All Button (Centered for all screens) */}
+        <div className="flex justify-center pt-16">
           <Link
             href="/projects"
-            className="px-8 py-4 border border-structure/20 rounded-full text-sm font-sans uppercase tracking-widest text-structure hover:bg-structure hover:text-white transition-all"
+            className="group px-12 py-4 border border-structure/20 rounded-full text-sm font-sans uppercase tracking-[0.2em] text-structure hover:bg-structure hover:text-white transition-all flex items-center gap-3"
           >
             View All Projects
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </Link>
         </div>
       </div>

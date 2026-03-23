@@ -13,7 +13,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
-  const imageUrl = getDriveDirectLink(project.image);
+  const imageUrl = getDriveDirectLink(project.featuredImage);
 
   return (
     <motion.div
@@ -37,7 +37,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             alt={project.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale"
-            unoptimized={project.image.includes("drive.google.com")}
+            unoptimized={project.featuredImage.includes("drive.google.com")}
           />
 
           <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

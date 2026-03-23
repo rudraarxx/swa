@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { projects } from "@/data/projects";
+import { featuredProjects } from "@/data/projects";
 import { getDriveDirectLink } from "@/lib/image-utils";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -14,12 +14,12 @@ export function Hero() {
 
   const slideNext = useCallback(() => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
+    setCurrentIndex((prev) => (prev + 1) % featuredProjects.length);
   }, []);
 
   const slidePrev = useCallback(() => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    setCurrentIndex((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length);
   }, []);
 
   useEffect(() => {
@@ -31,23 +31,26 @@ export function Hero() {
     enter: (direction: number) => ({
       x: direction > 0 ? "100%" : "-100%",
       opacity: 0,
+      scale: 1.05,
     }),
     center: {
       zIndex: 1,
       x: 0,
       opacity: 1,
+      scale: 1,
     },
     exit: (direction: number) => ({
       zIndex: 0,
       x: direction < 0 ? "100%" : "-100%",
       opacity: 0,
+      scale: 0.95,
     }),
   };
 
-  const project = projects[currentIndex];
-  // Make sure we have a valid URL before using string methods
-  const imageUrl = getDriveDirectLink(project?.image || "");
-  const isDriveImage = project?.image?.includes("drive.google.com") ?? false;
+  const project = featuredProjects[currentIndex];
+  // Use the dedicated featuredImage for the hero carousel
+  const imageUrl = getDriveDirectLink(project?.featuredImage || "");
+  const isDriveImage = project?.featuredImage?.includes("drive.google.com") ?? false;
 
   if (!project) return null;
 
@@ -64,8 +67,9 @@ export function Hero() {
             animate="center"
             exit="exit"
             transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.4 },
+              x: { duration: 1.2, ease: [0.32, 0.72, 0, 1] },
+              opacity: { duration: 0.8, ease: "linear" },
+              scale: { duration: 1.2, ease: [0.32, 0.72, 0, 1] },
             }}
             className="absolute inset-0 w-full h-full"
           >
@@ -154,7 +158,7 @@ export function Hero() {
 
         {/* Slide Indicators */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-          {projects.map((_, index) => (
+          {featuredProjects.map((_, index) => (
             <button
               key={index}
               onClick={() => {

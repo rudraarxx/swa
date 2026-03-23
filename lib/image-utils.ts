@@ -12,8 +12,8 @@ export function getDriveDirectLink(url: string): string {
     const match = url.match(/\/d\/([^/]+)/);
     if (match && match[1]) {
       const fileId = match[1];
-      // This format works well for embedding in img tags
-      return `https://lh3.googleusercontent.com/d/${fileId}`;
+      // Use our internal proxy to avoid ORB/CORS blocking issues with Google Drive
+      return `/api/drive-image?id=${fileId}`;
     }
   }
 
