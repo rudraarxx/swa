@@ -4,6 +4,8 @@ import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import { Navbar } from "@/components/shared/navbar";
 import { Footer } from "@/components/shared/footer";
 import { Cursor } from "@/components/ui/cursor";
+import { Preloader } from "@/components/ui/preloader";
+import { PageTransitionProvider } from "@/components/providers/page-transition";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -31,11 +33,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${lora.variable} antialiased`}>
+        <Preloader />
         <Cursor />
         <SmoothScroll>
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+          <PageTransitionProvider>
+            <Navbar />
+            <main className="min-h-screen">
+              {children}
+            </main>
+            <Footer />
+          </PageTransitionProvider>
         </SmoothScroll>
       </body>
     </html>

@@ -111,6 +111,10 @@ body {
   overflow-x: hidden; /* For smooth reveal animations */
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 /* Hide default cursor on desktop to use custom cursor */
 /* Hide default cursor on desktop to use custom cursor */
 @media (hover: hover) and (pointer: fine) {

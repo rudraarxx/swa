@@ -1,14 +1,13 @@
 import React from "react";
 
-export const BrandLogo = () => {
+export const BrandLogo = ({ className }: { className?: string }) => {
   return (
     <svg
-      width="88"
-      height="38"
       viewBox="0 0 88 38"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
+      className={className}
     >
       <rect width="88" height="38" fill="url(#pattern0_128_967)" />
       <defs>

@@ -55,7 +55,7 @@ export function Navbar() {
               className="pointer-events-auto flex items-center gap-2"
             >
               <div className="w-20">
-                <BrandLogo />
+                <BrandLogo className="w-full h-auto" />
               </div>
               <div className="flex flex-col">
                 <span className="text-[10px] leading-tight font-sans tracking-widest uppercase font-bold text-structure">
