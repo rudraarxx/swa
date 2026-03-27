@@ -85,12 +85,14 @@ export function Footer() {
               <div className="flex flex-col space-y-2 font-serif text-lg">
                 <a
                   href="mailto:shubhangiwahanearchitects@gmail.com"
+                  aria-label="Send email to Shubhangi Wahane Architects"
                   className="hover:text-primary transition-colors w-fit"
                 >
                   shubhangiwahanearchitects@gmail.com
                 </a>
                 <a
                   href="tel:+917738700860"
+                  aria-label="Call Shubhangi Wahane Architects"
                   className="hover:text-primary transition-colors w-fit"
                 >
                   +91 77387 00860

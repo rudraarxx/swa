@@ -23,7 +23,7 @@ export function Preloader() {
     // Minimum load time for premium feel
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 2000);
 
     // Also wait for window load event
     const handleLoad = () => {

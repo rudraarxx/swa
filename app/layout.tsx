@@ -20,8 +20,81 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "SWA | Shubhangi Wahane Architects | Architecture & Interiors",
-  description: "Bespoke architectural and interior design sanctuary based in Nagpur, India. We create spaces that breathe — where contemporary elegance meets everyday warmth.",
+  metadataBase: new URL("https://shubhangiwahane.com"), // Base URL for OG images
+  title: {
+    default: "SWA Architects | Ar. Shubhangi Wahane | Nagpur & Mumbai",
+    template: "%s | SWA Architects",
+  },
+  description: "Bespoke architectural and interior design sanctuary. Ar. Shubhangi Wahane creates spaces that breathe — where contemporary elegance meets everyday warmth across Nagpur & Mumbai.",
+  keywords: ["Architect", "Interior Design", "Nagpur", "Mumbai", "Minimalism", "Sustainable Architecture", "Ar. Shubhangi Wahane"],
+  authors: [{ name: "Ar. Shubhangi Wahane" }],
+  creator: "SWA Architects",
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://shubhangiwahane.com",
+    title: "SWA Architects | Bespoke Architectural & Interior Design",
+    description: "Creating spaces that breathe. Explore the architectural narratives of Ar. Shubhangi Wahane.",
+    siteName: "SWA Architects",
+    images: [
+      {
+        url: "/og-image.jpg", // Ensure this exists or use a representative image
+        width: 1200,
+        height: 630,
+        alt: "SWA Architects Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SWA Architects | Ar. Shubhangi Wahane",
+    description: "Bespoke architectural and interior design based in Nagpur & Mumbai.",
+    images: ["/og-image.jpg"],
+  },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-touch-icon.png",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "SWA Architects",
+  "image": "https://shubhangiwahane.com/logo.png",
+  "@id": "https://shubhangiwahane.com",
+  "url": "https://shubhangiwahane.com",
+  "telephone": "+917738700860",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Nagpur Office",
+    "addressLocality": "Nagpur",
+    "addressRegion": "Maharashtra",
+    "postalCode": "440001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 21.1458,
+    "longitude": 79.0882
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "10:00",
+    "closes": "19:00"
+  },
+  "sameAs": [
+    "https://www.instagram.com/shubbhangiwahane/",
+    "https://www.linkedin.com/in/shubhangi-wahane/"
+  ]
 };
 
 export default function RootLayout({
@@ -32,6 +105,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${playfair.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Preloader />
         <Cursor />
         <SmoothScroll>

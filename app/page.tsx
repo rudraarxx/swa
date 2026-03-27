@@ -1,21 +1,12 @@
-"use client";
+import { Metadata } from "next";
+import { HomeContent } from "@/components/home/home-content";
 
-import { Hero } from "@/components/home/hero";
-import { ExpertiseSection } from "@/components/home/expertise-section";
-import { FounderSection } from "@/components/home/founder-section";
-import { ProjectsSection } from "@/components/home/projects-section";
-import { TestimonialSection } from "@/components/home/testimonial-section";
-import { QuoteSection } from "@/components/home/cta-section";
+export const metadata: Metadata = {
+  title: "SWA Architects | Architecture & Interiors in Nagpur & Mumbai",
+  description: "Bespoke architectural and interior design by Ar. Shubhangi Wahane. Specializing in minimalism, sustainable spaces, and contemporary elegance across Nagpur and Mumbai.",
+  keywords: ["architect in nagpur", "interior design mumbai", "minimalist architecture", "sustainable design", "Ar. Shubhangi Wahane"],
+};
 
 export default function Home() {
-  return (
-    <div className="flex flex-col gap-0">
-      <Hero />
-      <ExpertiseSection />
-      <FounderSection />
-      <ProjectsSection />
-      <TestimonialSection />
-      <QuoteSection />
-    </div>
-  );
+  return <HomeContent />;
 }

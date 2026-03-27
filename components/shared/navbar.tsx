@@ -129,6 +129,7 @@ export function Navbar() {
       >
         <button
           onClick={toggleMenu}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="pointer-events-auto h-14 w-14 rounded-full bg-structure text-background flex items-center justify-center hover:bg-primary transition-all shadow-lg"
         >
           <AnimatePresence mode="wait">
