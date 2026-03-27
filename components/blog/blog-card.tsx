@@ -22,7 +22,7 @@ export function BlogCard({ post }: BlogCardProps) {
     >
       <Link href={`/blog/${post.slug}`} className="block space-y-5">
         {/* Image Container */}
-        <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-secondary/10">
+        <div className="relative aspect-16/10 rounded-2xl overflow-hidden group">
           <Image
             src={post.image}
             alt={post.title}

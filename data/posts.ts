@@ -1,7 +1,7 @@
 export interface BlogPost {
   id: string;
   title: string;
-  category: "Architecture" | "Interior" | "Design" | "Sustainability" | "Nagpur";
+  category: "Residential" | "Interior" | "Sustainable";
   date: string;
   readingTime: string;
   image: string;
@@ -14,7 +14,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: "1",
     title: "The Soul of Minimalism in Urban Homes",
-    category: "Architecture",
+    category: "Residential",
     date: "March 15, 2026",
     readingTime: "6 min read",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200",
@@ -39,7 +39,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: "2",
     title: "Nagpur’s Evolving Skyline: A 2026 Perspective",
-    category: "Nagpur",
+    category: "Residential",
     date: "February 28, 2026",
     readingTime: "4 min read",
     image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1200",
@@ -57,7 +57,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: "3",
     title: "Sustainable Materials for Tropical Climates",
-    category: "Sustainability",
+    category: "Sustainable",
     date: "February 12, 2026",
     readingTime: "5 min read",
     image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1200",
@@ -91,7 +91,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: "5",
     title: "Biophilic Design: Bringing the Outside In",
-    category: "Design",
+    category: "Sustainable",
     date: "January 05, 2026",
     readingTime: "5 min read",
     image: "https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?q=80&w=1200",
@@ -104,7 +104,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: "6",
     title: "Retrofitting Heritage Structures in Modern India",
-    category: "Architecture",
+    category: "Residential",
     date: "December 18, 2025",
     readingTime: "8 min read",
     image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=1200",
@@ -130,7 +130,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: "8",
     title: "Bespoke Furniture: A Silent Architecture",
-    category: "Design",
+    category: "Sustainable",
     date: "November 15, 2025",
     readingTime: "4 min read",
     image: "https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=1200",

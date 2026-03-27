@@ -7,7 +7,7 @@ import { Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
-const CATEGORIES = ["All", "Architecture", "Interior", "Design", "Sustainability", "Nagpur"] as const;
+const CATEGORIES = ["All", "Residential", "Interior", "Sustainable"] as const;
 
 export function BlogFilter() {
   const router = useRouter();

@@ -7,6 +7,36 @@ export function Footer() {
   return (
     <footer className="w-full bg-structure text-background py-16 px-6 md:px-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col h-full">
+        {/* Conversation Starter */}
+        <div className="mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-b border-background/10 pb-20">
+          <div className="space-y-6">
+            <h2 className="text-4xl md:text-6xl font-serif italic leading-tight">
+              Ready to draft <br />
+              <span className="text-primary not-italic font-normal">your next perspective?</span>
+            </h2>
+            <p className="text-lg opacity-60 font-serif max-w-md">
+              Whether you're planning a sanctuary or a structure of scale, our doors are open for dialogue.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-6 lg:justify-end">
+            <a 
+              href={`https://wa.me/917738700860?text=${encodeURIComponent("Hi Shubhangi, I'm ready to discuss my project.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 px-8 py-5 bg-background text-structure rounded-full font-sans font-bold uppercase tracking-widest text-xs hover:bg-primary transition-all shadow-xl group"
+            >
+              Connect on WhatsApp
+              <div className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+            </a>
+            <a 
+              href="tel:+917738700860"
+              className="flex items-center justify-center gap-3 px-8 py-5 border border-background/20 text-background rounded-full font-sans font-bold uppercase tracking-widest text-xs hover:border-primary transition-all"
+            >
+              Direct Call
+            </a>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-20">
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-6">
@@ -54,10 +84,10 @@ export function Footer() {
               </h3>
               <div className="flex flex-col space-y-2 font-serif text-lg">
                 <a
-                  href="mailto:shubhangiwahanearchitechs@gmail.com"
+                  href="mailto:shubhangiwahanearchitects@gmail.com"
                   className="hover:text-primary transition-colors w-fit"
                 >
-                  shubhangiwahanearchitechs@gmail.com
+                  shubhangiwahanearchitects@gmail.com
                 </a>
                 <a
                   href="tel:+917738700860"

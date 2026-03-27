@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Poppins, Lora } from "next/font/google";
+import { Poppins, Playfair_Display } from "next/font/google";
 import { SmoothScroll } from "@/components/providers/smooth-scroll";
-import { Navbar } from "@/components/shared/navbar";
-import { Footer } from "@/components/shared/footer";
+import { MainLayout } from "@/components/layout/MainLayout";
 import { Cursor } from "@/components/ui/cursor";
 import { Preloader } from "@/components/ui/preloader";
 import "./globals.css";
@@ -13,10 +12,11 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
-const lora = Lora({
-  variable: "--font-lora",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -31,15 +31,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${lora.variable} antialiased`}>
+      <body className={`${poppins.variable} ${playfair.variable} antialiased`}>
         <Preloader />
         <Cursor />
         <SmoothScroll>
-          <Navbar />
-          <main className="min-h-screen">
+          <MainLayout>
             {children}
-          </main>
-          <Footer />
+          </MainLayout>
         </SmoothScroll>
       </body>
     </html>

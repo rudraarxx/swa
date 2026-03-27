@@ -88,7 +88,7 @@ export function Navbar() {
               </div>
             </div>
 
-            {/* Right: Socials */}
+            {/* Right: Socials & Contact */}
             <div className="pointer-events-auto flex items-center gap-3">
               {[
                 { Icon: Instagram, href: "https://www.instagram.com/shubbhangiwahane/" },
@@ -104,6 +104,15 @@ export function Navbar() {
                   <Icon size={16} />
                 </a>
               ))}
+              
+              <a
+                href={`https://wa.me/917738700860?text=${encodeURIComponent("Hi Shubhangi, I'm interested in discussing a project. Can we connect?")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-structure text-background rounded-full hover:bg-primary transition-all shadow-sm font-sans font-bold uppercase tracking-widest text-[10px]"
+              >
+                Connect
+              </a>
             </div>
           </motion.header>
         )}

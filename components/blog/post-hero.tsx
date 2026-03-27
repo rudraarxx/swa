@@ -79,7 +79,7 @@ export function PostHero({ post }: PostHeroProps) {
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative aspect-square md:aspect-[4/3] lg:aspect-square overflow-hidden rounded-sm shadow-2xl"
+            className="relative aspect-square md:aspect-4/3 lg:aspect-square overflow-hidden rounded-sm shadow-2xl"
           >
             <Image
               src={post.image}

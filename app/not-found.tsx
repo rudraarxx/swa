@@ -56,7 +56,7 @@ export default function NotFound() {
               href="/"
               className="group relative inline-flex items-center gap-3 px-8 py-4 bg-structure text-canvas rounded-full transition-all duration-500 hover:pr-10 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
+              <div className="w-lg h-128 rounded-full bg-primary/20 blur-3xl" />
               <span className="relative z-10 flex items-center gap-2 font-sans font-medium uppercase tracking-widest text-xs">
                 <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                 Return to Sanctuary
@@ -112,7 +112,7 @@ export default function NotFound() {
           ease: "easeInOut",
           delay: 1,
         }}
-        className="absolute -bottom-48 -right-24 w-[32rem] h-[32rem] bg-secondary/10 rounded-full blur-[120px] pointer-events-none"
+        className="absolute -bottom-48 -right-24 w-lg h-128 bg-secondary/10 rounded-full blur-[120px] pointer-events-none"
       />
     </div>
   );

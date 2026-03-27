@@ -22,7 +22,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Calculator, MapPin, Ruler, Sparkles, RefreshCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type Step = "location" | "details" | "quality" | "results";
+type Step = "location" | "details" | "scope" | "quality" | "results";
 
 export function CalculatorMain() {
   const [step, setStep] = useState<Step>("location");
@@ -30,6 +30,7 @@ export function CalculatorMain() {
   const [city, setCity] = useState<string>("");
   const [area, setArea] = useState<string>("1500");
   const [floors, setFloors] = useState<string>("1");
+  const [scope, setScope] = useState<string>("turnkey");
   const [quality, setQuality] = useState<string>("premium");
   const [result, setResult] = useState<CalculationResult | null>(null);
 
@@ -47,13 +48,15 @@ export function CalculatorMain() {
     if (!selectedCity) return;
     
     const selectedQuality = ratesData.qualities.find(q => q.id === quality);
-    if (!selectedQuality) return;
+    const selectedScope = ratesData.scopes.find(s => s.id === scope);
+    if (!selectedQuality || !selectedScope) return;
 
     const res = calculateConstructionCost(
       selectedCity.multiplier,
       selectedCity.baseRate,
       Number(area),
-      selectedQuality.multiplier
+      selectedQuality.multiplier,
+      selectedScope.multiplier
     );
     
     setResult(res);
@@ -82,7 +85,7 @@ export function CalculatorMain() {
               <span className="text-primary not-italic font-normal">dream architecture.</span>
             </h2>
             <p className="text-structure/60 font-sans text-sm tracking-wide">
-              Step {step === "results" ? 4 : (step === "location" ? 1 : step === "details" ? 2 : 3)} of 3
+              Step {step === "results" ? 5 : (step === "location" ? 1 : step === "details" ? 2 : step === "scope" ? 3 : 4)} of 4
             </p>
           </div>
 
@@ -197,6 +200,59 @@ export function CalculatorMain() {
                       Back
                     </Button>
                     <Button 
+                      onClick={() => setStep("scope")}
+                      className="flex-1 bg-structure hover:bg-primary text-background rounded-full py-6 transition-all"
+                    >
+                      Next Step
+                    </Button>
+                  </div>
+                </motion.div>
+              )}
+
+              {step === "scope" && (
+                <motion.div
+                  key="scope"
+                  variants={containerVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  className="space-y-6"
+                >
+                  <div className="flex items-center gap-3 text-primary mb-2">
+                    <Sparkles className="w-5 h-5" />
+                    <h3 className="font-sans font-bold uppercase tracking-widest text-xs">Project Scope</h3>
+                  </div>
+
+                  <RadioGroup value={scope} onValueChange={setScope} className="grid gap-4">
+                    {ratesData.scopes.map((s) => (
+                      <Label
+                        key={s.id}
+                        className={cn(
+                          "flex flex-col p-4 border rounded-xl cursor-pointer transition-all hover:bg-structure/2",
+                          scope === s.id ? "border-primary bg-primary/3" : "border-structure/10 bg-white"
+                        )}
+                      >
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-serif italic text-lg text-structure">{s.name}</span>
+                          <RadioGroupItem value={s.id} className="sr-only" />
+                          {scope === s.id && <div className="w-2 h-2 rounded-full bg-primary" />}
+                        </div>
+                        <span className="text-[10px] text-structure/50 uppercase tracking-widest leading-relaxed">
+                          {s.description}
+                        </span>
+                      </Label>
+                    ))}
+                  </RadioGroup>
+
+                  <div className="flex gap-4 pt-2">
+                    <Button 
+                      variant="outline"
+                      onClick={() => setStep("details")}
+                      className="border-structure/20 text-structure rounded-full py-6 px-8 hover:bg-structure/5"
+                    >
+                      Back
+                    </Button>
+                    <Button 
                       onClick={() => setStep("quality")}
                       className="flex-1 bg-structure hover:bg-primary text-background rounded-full py-6 transition-all"
                     >
@@ -225,8 +281,8 @@ export function CalculatorMain() {
                       <Label
                         key={q.id}
                         className={cn(
-                          "flex flex-col p-4 border rounded-xl cursor-pointer transition-all hover:bg-structure/[0.02]",
-                          quality === q.id ? "border-primary bg-primary/[0.03]" : "border-structure/10 bg-white"
+                          "flex flex-col p-4 border rounded-xl cursor-pointer transition-all hover:bg-structure/2",
+                          quality === q.id ? "border-primary bg-primary/3" : "border-structure/10 bg-white"
                         )}
                       >
                         <div className="flex items-center justify-between mb-1">
@@ -244,7 +300,7 @@ export function CalculatorMain() {
                   <div className="flex gap-4 pt-2">
                     <Button 
                       variant="outline"
-                      onClick={() => setStep("details")}
+                      onClick={() => setStep("scope")}
                       className="border-structure/20 text-structure rounded-full py-6 px-8 hover:bg-structure/5"
                     >
                       Back
@@ -292,9 +348,15 @@ export function CalculatorMain() {
         {/* Right Side: Results Card / Info */}
         <div className="w-full md:w-[400px]">
           {result ? (
-            <ResultsCard result={result} area={Number(area)} />
+            <ResultsCard 
+              result={result} 
+              area={Number(area)} 
+              city={city}
+              quality={ratesData.qualities.find(q => q.id === quality)?.name || quality}
+              scope={ratesData.scopes.find(s => s.id === scope)?.name || scope}
+            />
           ) : (
-            <div className="h-full min-h-[400px] border-2 border-dashed border-structure/10 rounded-2xl flex flex-col items-center justify-center p-12 text-center bg-structure/[0.01]">
+            <div className="h-full min-h-[400px] border-2 border-dashed border-structure/10 rounded-2xl flex flex-col items-center justify-center p-12 text-center bg-structure/1">
               <div className="bg-structure/5 w-16 h-16 rounded-full flex items-center justify-center text-structure/20 mb-4">
                 <Calculator className="w-8 h-8" />
               </div>

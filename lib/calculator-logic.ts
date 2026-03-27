@@ -14,9 +14,10 @@ export function calculateConstructionCost(
   cityMultiplier: number,
   baseRate: number,
   areaSqFt: number,
-  qualityMultiplier: number
+  qualityMultiplier: number,
+  scopeMultiplier: number
 ): CalculationResult {
-  const finalRatePerSqFt = baseRate * cityMultiplier * qualityMultiplier;
+  const finalRatePerSqFt = baseRate * cityMultiplier * qualityMultiplier * scopeMultiplier;
   const totalCost = finalRatePerSqFt * areaSqFt;
 
   return {
