@@ -54,16 +54,16 @@ export function Footer() {
               </h3>
               <div className="flex flex-col space-y-2 font-serif text-lg">
                 <a
-                  href="mailto:hello@swa-arch.com"
+                  href="mailto:shubhangiwahanearchitechs@gmail.com"
                   className="hover:text-primary transition-colors w-fit"
                 >
-                  hello@swa-arch.com
+                  shubhangiwahanearchitechs@gmail.com
                 </a>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+917738700860"
                   className="hover:text-primary transition-colors w-fit"
                 >
-                  +91 (123) 456-7890
+                  +91 77387 00860
                 </a>
                 <p className="opacity-70 mt-2">Nagpur, Maharashtra</p>
               </div>
@@ -73,14 +73,19 @@ export function Footer() {
               <h3 className="font-sans text-sm uppercase tracking-widest opacity-50 mb-2">
                 Socials
               </h3>
-              <div className="flex space-x-4">
-                {["Instagram", "LinkedIn", "Houzz"].map((social) => (
+              <div className="flex space-x-6">
+                {[
+                  { name: "Instagram", href: "https://www.instagram.com/shubbhangiwahane/" },
+                  { name: "LinkedIn", href: "https://www.linkedin.com/in/shubhangi-wahane/" },
+                ].map((social) => (
                   <a
-                    key={social}
-                    href="#"
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-serif text-base hover:text-primary transition-colors border-b border-transparent hover:border-primary"
                   >
-                    {social}
+                    {social.name}
                   </a>
                 ))}
               </div>

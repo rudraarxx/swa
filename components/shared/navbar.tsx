@@ -8,7 +8,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { useGravity } from "@/store/useGravity";
-import { Menu, X, Instagram, Linkedin, Facebook } from "lucide-react"; // Assuming these icons exist
+import { Menu, X, Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { BrandLogo } from "@/icons/brandLogo";
 
@@ -90,10 +90,15 @@ export function Navbar() {
 
             {/* Right: Socials */}
             <div className="pointer-events-auto flex items-center gap-3">
-              {[Instagram, Linkedin, Facebook].map((Icon, i) => (
+              {[
+                { Icon: Instagram, href: "https://www.instagram.com/shubbhangiwahane/" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/shubhangi-wahane/" },
+              ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-structure hover:bg-structure hover:text-white transition-all shadow-sm border border-structure/5"
                 >
                   <Icon size={16} />

@@ -5,7 +5,6 @@ import { Navbar } from "@/components/shared/navbar";
 import { Footer } from "@/components/shared/footer";
 import { Cursor } from "@/components/ui/cursor";
 import { Preloader } from "@/components/ui/preloader";
-import { PageTransitionProvider } from "@/components/providers/page-transition";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -36,13 +35,11 @@ export default function RootLayout({
         <Preloader />
         <Cursor />
         <SmoothScroll>
-          <PageTransitionProvider>
-            <Navbar />
-            <main className="min-h-screen">
-              {children}
-            </main>
-            <Footer />
-          </PageTransitionProvider>
+          <Navbar />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
         </SmoothScroll>
       </body>
     </html>
