@@ -31,8 +31,8 @@ export function Navbar() {
     { name: "Projects", href: "/projects" },
     { name: "Services", href: "/services" },
     { name: "About", href: "/about" },
-    { name: "Blog", href: "/blog" },
     { name: "Calculator", href: "/calculator" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
 

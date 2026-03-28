@@ -45,17 +45,16 @@ const expertiseAreas = [
 ];
 
 export function ExpertiseSection() {
-  const containerRef = useRef(null);
+  const graphicRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: graphicRef,
     offset: ["start end", "end start"],
   });
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [-180, 180]);
 
   return (
     <section 
-      ref={containerRef}
       className="relative py-32 md:py-48 px-6 md:px-12 bg-[#0A0A0A] overflow-hidden text-white"
     >
       {/* Background Ambient Glow */}
@@ -64,7 +63,7 @@ export function ExpertiseSection() {
 
       <div className="max-w-7xl mx-auto space-y-32">
         {/* Intro Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div ref={graphicRef} className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-12">
             <Reveal width="100%">
               <div className="space-y-4">

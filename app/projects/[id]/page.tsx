@@ -1,17 +1,19 @@
 "use client";
 
-import { use, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { use, useRef, useState } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Reveal } from "@/components/motion/reveal";
-import { ArrowLeft, MapPin, Calendar, Ruler, Hammer } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Ruler, Hammer, Maximize2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { getProjectBySlug, getNextProject } from "@/data/projects";
 import { getDriveDirectLink } from "@/lib/image-utils";
+import { ImageLightbox } from "@/components/projects/image-lightbox";
 
 export default function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const containerRef = useRef(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const project = getProjectBySlug(id);
   const nextProject = getNextProject(id);
@@ -42,43 +44,74 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
 
   return (
     <div className="min-h-screen bg-canvas" ref={containerRef}>
-      {/* Project Hero */}
-      <div className="h-[80vh] w-full relative overflow-hidden">
-        <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <Image
-            src={heroImageUrl}
-            alt={project.title}
-            fill
-            priority
-            className="object-cover"
-            unoptimized={isDriveImage}
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-linear-to-t from-canvas to-transparent z-10" />
-        <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 z-20">
-          <Link href="/" className="inline-flex items-center gap-2 text-structure/70 hover:text-primary mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            <span className="font-sans text-sm uppercase tracking-widest">Back to Projects</span>
-          </Link>
-          
-          <Reveal>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs md:text-sm font-sans uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-structure/20 text-structure/70 inline-block">
-                {project.category}
-              </span>
-              <span className="text-xs md:text-sm font-sans text-structure/50">
-                {project.year}
-              </span>
+      {/* Light Editorial Project Hero */}
+      <div className="pt-40 pb-16 px-6 md:px-12 bg-canvas overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-16">
+          {/* Editorial Header Section */}
+          <div className="flex flex-col md:flex-row justify-between items-end gap-12">
+            <div className="space-y-12 max-w-4xl">
+              <Link href="/" className="group inline-flex items-center gap-4 text-structure/30 hover:text-primary transition-all duration-300">
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                <span className="font-sans text-[10px] uppercase tracking-[0.4em]">Index / Projects</span>
+              </Link>
+              
+              <Reveal>
+                <h1 className="text-7xl md:text-[10rem] font-serif text-structure leading-[0.8] tracking-tight">
+                  {project.title.split(' ').map((word, i) => (
+                    <span key={i} className={i % 2 !== 0 ? 'italic text-primary/90' : ''}>
+                      {word}{' '}
+                    </span>
+                  ))}
+                </h1>
+              </Reveal>
             </div>
-            <h1 className="text-5xl md:text-8xl font-serif text-structure mb-4">
-              {project.title}
-            </h1>
-          </Reveal>
-          <Reveal delay={0.4}>
-             <p className="font-sans text-primary text-xl md:text-2xl max-w-xl">
-               {project.description}
-             </p>
-          </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="flex flex-col items-end gap-6 text-right pb-4">
+                <span className="text-[10px] font-sans uppercase tracking-[0.3em] px-5 py-2 rounded-full border border-structure/10 text-structure/60 bg-white/50 backdrop-blur-sm">
+                  {project.category}
+                </span>
+                <span className="text-[10px] font-sans uppercase tracking-[0.4em] text-structure/30 font-medium">
+                  Project No. {project.year}
+                </span>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Framed Hero Image (Artistic Frame) */}
+          <div className="relative aspect-video w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)] bg-secondary/5 group">
+            <motion.div style={{ y }} className="absolute inset-x-0 -inset-y-32">
+              <Image
+                src={heroImageUrl}
+                alt={project.title}
+                fill
+                priority
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                unoptimized={isDriveImage}
+              />
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 pt-12 items-start">
+            <Reveal delay={0.4}>
+              <p className="font-sans text-structure/60 text-xl md:text-3xl leading-relaxed italic font-light tracking-tight max-w-2xl">
+                {project.description}
+              </p>
+            </Reveal>
+            <div className="space-y-8 flex flex-col items-end">
+               <div className="h-px w-full bg-structure/5" />
+               <div className="flex items-center gap-12">
+                  <div className="text-right">
+                    <p className="text-[10px] uppercase tracking-widest text-structure/30 mb-1">Status</p>
+                    <p className="text-sm font-sans font-semibold text-structure">{project.status}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[10px] uppercase tracking-widest text-structure/30 mb-1">Presence</p>
+                    <p className="text-sm font-sans font-semibold text-structure">{project.location}</p>
+                  </div>
+               </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -146,28 +179,46 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="py-12 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto space-y-4">
-          {project.images.map((img, i) => {
-            const imgUrl = getDriveDirectLink(img);
-            const isGdrive = img.includes("drive.google.com");
-            return (
-              <Reveal key={i} width="100%">
-                <div className="relative w-full aspect-video bg-secondary/5 overflow-hidden group">
-                  <Image
-                    src={imgUrl}
-                    alt={`${project.title} - Image ${i + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                    unoptimized={isGdrive}
-                  />
-                </div>
-              </Reveal>
-            );
-          })}
+      {/* Gallery Grid */}
+      <section className="py-24 px-6 md:px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:grid-cols-3 md:gap-3">
+            {project.images.map((img, i) => {
+              const imgUrl = getDriveDirectLink(img);
+              const isGdrive = img.includes("drive.google.com");
+              return (
+                <Reveal key={i} width="100%" delay={i * 0.05}>
+                  <div 
+                    onClick={() => setSelectedIndex(i)}
+                    className="relative w-full aspect-square bg-secondary/5 overflow-hidden group cursor-zoom-in rounded-sm"
+                  >
+                    <Image
+                      src={imgUrl}
+                      alt={`${project.title} - Image ${i + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                      unoptimized={isGdrive}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 flex items-center justify-center">
+                       <Maximize2 size={24} className="text-white opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all" strokeWidth={1} />
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
+
+      {/* Lightbox Overlay */}
+      {selectedIndex !== null && (
+        <ImageLightbox 
+          images={project.images}
+          initialIndex={selectedIndex}
+          onClose={() => setSelectedIndex(null)}
+          title={project.title}
+        />
+      )}
 
       {/* Next Project */}
       <Link href={`/projects/${nextProject.slug}`} className="block">

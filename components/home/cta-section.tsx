@@ -23,7 +23,8 @@ export function QuoteSection() {
               </Reveal>
               <Reveal delay={0.2} width="100%">
                 <p className="text-lg text-structure/60 leading-relaxed font-light font-sans max-w-sm">
-                  Ready to transform your space? Let&apos;s discuss your project and explore the architectural potential of your dream.
+                  Ready to transform your space? Let&apos;s discuss your project
+                  and explore the architectural potential of your dream.
                 </p>
               </Reveal>
             </div>
@@ -34,9 +35,14 @@ export function QuoteSection() {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-widest text-structure/40 mb-1">Email us</p>
-                  <a href="mailto:shubhangiwahanearchitects@gmail.com" className="text-lg font-sans text-structure hover:text-primary transition-colors">
-                    shubhangiwahane.archi@gmail.com
+                  <p className="text-[10px] uppercase tracking-widest text-structure/40 mb-1">
+                    Email us
+                  </p>
+                  <a
+                    href="mailto:shubhangiwahanearchitects@gmail.com"
+                    className="text-lg font-sans text-structure hover:text-primary transition-colors"
+                  >
+                    shubhangiwahanearchitects@gmail.com
                   </a>
                 </div>
               </div>
@@ -46,7 +52,9 @@ export function QuoteSection() {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-widest text-structure/40 mb-1">Our Studio</p>
+                  <p className="text-[10px] uppercase tracking-widest text-structure/40 mb-1">
+                    Our Studio
+                  </p>
                   <p className="text-lg font-sans text-structure">
                     Nagpur — Mumbai, India
                   </p>
@@ -61,8 +69,8 @@ export function QuoteSection() {
               <form className="space-y-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2 relative">
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="Your Name"
                       className="w-full bg-transparent border-b border-structure/20 py-4 focus:outline-none focus:border-primary transition-colors text-structure peer placeholder-transparent"
                     />
@@ -71,8 +79,8 @@ export function QuoteSection() {
                     </label>
                   </div>
                   <div className="space-y-2 relative">
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       placeholder="Your Email"
                       className="w-full bg-transparent border-b border-structure/20 py-4 focus:outline-none focus:border-primary transition-colors text-structure peer placeholder-transparent"
                     />
@@ -97,7 +105,7 @@ export function QuoteSection() {
                 </div>
 
                 <div className="space-y-2 relative">
-                  <textarea 
+                  <textarea
                     rows={4}
                     placeholder="Message"
                     className="w-full bg-transparent border-b border-structure/20 py-4 focus:outline-none focus:border-primary transition-colors text-structure resize-none peer placeholder-transparent"

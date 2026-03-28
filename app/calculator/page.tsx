@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
   return (
-    <div className="min-h-screen bg-canvas pt-32 pb-20">
+    <div className="min-h-screen bg-canvas pt-44 pb-44">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-structure/10 pb-12">

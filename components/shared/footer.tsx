@@ -41,13 +41,20 @@ export function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-6">
             <div className="w-48">
-              <Image
-                src="/logo_light.png"
-                alt="SWA Logo"
-                width={200}
-                height={80}
-                className="w-full h-auto object-contain"
-              />
+            <div className="mb-6">
+              <div className="flex flex-col">
+                <span className="text-6xl md:text-7xl font-serif tracking-tighter text-background leading-none">
+                  SWA
+                  <span className="text-secondary">.</span>
+                </span>
+                <span className="mt-4 text-xs font-sans tracking-[0.3em] uppercase font-bold text-background/80">
+                  Shubhangi Wahane
+                </span>
+                <span className="text-xs font-sans tracking-[0.3em] uppercase text-background/40">
+                  Architects
+                </span>
+              </div>
+            </div>
             </div>
             <p className="text-lg md:text-xl opacity-80 max-w-sm font-serif leading-relaxed">
               Grounding ethereal concepts into architectural reality.

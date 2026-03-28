@@ -1,8 +1,9 @@
 import React from "react";
 
-export const BrandLogo = () => {
+export const BrandLogo = ({ className }: { className?: string }) => {
   return (
     <svg
+      className={className}
       width="88"
       height="38"
       viewBox="0 0 88 38"

@@ -8,49 +8,53 @@ import { Reveal } from "@/components/motion/reveal";
 const serviceCategories = [
   {
     title: "Architecture & Master Planning",
-    description: "From concept to monumental reality, we provide comprehensive architectural solutions that merge functionality with avant-garde aesthetics.",
+    description:
+      "From concept to monumental reality, we provide comprehensive architectural solutions that merge functionality with avant-garde aesthetics.",
     features: [
       "Concept Development & Feasibility",
       "Comprehensive Master Planning",
       "Plan Approvals & Sanctioning (COA Verified)",
       "Detailed Construction Drawings",
       "BIM (Building Information Modeling)",
-      "3D Rendering & Visualization"
-    ]
+      "3D Rendering & Visualization",
+    ],
   },
   {
-    title: "Interior Architecture",
-    description: "Crafting atmospheric interiors where light, texture, and volume are carefully manipulated to create deeply personal living and working environments.",
+    title: "Interior Designing",
+    description:
+      "Crafting atmospheric interiors where light, texture, and volume are carefully manipulated to create deeply personal living and working environments.",
     features: [
       "Spatial Layout & Programming",
       "Bespoke Furniture Design",
       "Material & Finish Selection",
       "Lighting Design & Integration",
-      "Acoustic & Environmental Comfort"
-    ]
+      "Acoustic & Environmental Comfort",
+    ],
   },
   {
     title: "Landscape & Urban Intervention",
-    description: "Designing the dialogue between the built form and the natural environment, ensuring ecological sensitivity and community connection.",
+    description:
+      "Designing the dialogue between the built form and the natural environment, ensuring ecological sensitivity and community connection.",
     features: [
       "Ecological Restoration Strategies",
       "Hardscape & Softscape Integration",
       "Public Realm & Plaza Design",
       "Water Feature Dynamics",
-      "Sustainable Drainage Systems"
-    ]
+      "Sustainable Drainage Systems",
+    ],
   },
   {
     title: "Strategic Consulting",
-    description: "Expert advisory services that guide your project from inception to completion, mitigating risk while maximizing architectural potential.",
+    description:
+      "Expert advisory services that guide your project from inception to completion, mitigating risk while maximizing architectural potential.",
     features: [
       "Design Consultancy & Advisory",
       "Vastu Consultation & Compliance",
       "BOQs (Bill of Quantities) & Estimation",
       "Site Acquisition Analysis",
-      "Project Lifecycle Management"
-    ]
-  }
+      "Project Lifecycle Management",
+    ],
+  },
 ];
 
 export default function ServicesPage() {
@@ -72,7 +76,10 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal delay={0.4} width="100%">
             <p className="text-xl md:text-2xl text-structure/60 font-light max-w-2xl leading-relaxed">
-              We offer a holistic suite of architectural services designed to guide your project from the initial spark of imagination to its final, tangible construction. Our process is rooted in precision, empathy, and visionary design.
+              We offer a holistic suite of architectural services designed to
+              guide your project from the initial spark of imagination to its
+              final, tangible construction. Our process is rooted in precision,
+              empathy, and visionary design.
             </p>
           </Reveal>
         </div>
@@ -102,8 +109,14 @@ export default function ServicesPage() {
                     {/* Features List */}
                     <ul className="space-y-4 pt-4">
                       {category.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start gap-4">
-                          <CheckCircle2 size={20} className="text-primary/60 shrink-0 mt-0.5" />
+                        <li
+                          key={featureIndex}
+                          className="flex items-start gap-4"
+                        >
+                          <CheckCircle2
+                            size={20}
+                            className="text-primary/60 shrink-0 mt-0.5"
+                          />
                           <span className="text-sm font-sans text-structure/80 uppercase tracking-widest font-medium">
                             {feature}
                           </span>
@@ -129,7 +142,8 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal delay={0.2} width="100%">
             <p className="text-lg text-white/60 font-light">
-              Whether you need strategic consultancy or full-scale architectural design, we are ready to bring your vision to life.
+              Whether you need strategic consultancy or full-scale architectural
+              design, we are ready to bring your vision to life.
             </p>
           </Reveal>
           <Reveal delay={0.4} width="100%">
@@ -138,16 +152,21 @@ export default function ServicesPage() {
                 href="/#contact"
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
                   // fallback to homepage #contact if not on homepage
-                  if (window.location.pathname !== '/') {
-                    window.location.href = '/#contact';
+                  if (window.location.pathname !== "/") {
+                    window.location.href = "/#contact";
                   }
                 }}
                 className="group flex items-center gap-4 bg-white text-structure px-8 py-4 rounded-full font-sans text-xs uppercase tracking-[0.2em] font-medium hover:bg-primary hover:text-white transition-all shadow-xl"
               >
                 Get a Quote
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight
+                  size={16}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </Link>
             </div>
           </Reveal>

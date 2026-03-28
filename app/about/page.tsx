@@ -27,77 +27,102 @@ const stats = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-background pt-32 pb-24">
-      {/* Hero Section */}
-      <section className="px-6 md:px-12 mb-24 md:mb-32">
-        <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-background pb-24">
+      {/* Editorial 100vh Hero Section */}
+      <section className="relative h-screen px-6 md:px-12 flex flex-col items-center justify-center text-center overflow-hidden pt-40 md:pt-48">
+        {/* Large Decorative Initials */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none opacity-[0.02] text-[25vw] font-serif leading-none italic whitespace-nowrap -z-10">
+          SW.
+        </div>
+        
+        <div className="max-w-7xl mx-auto space-y-12 mb-24 relative z-10">
           <Reveal width="100%">
-            <h1 className="text-6xl md:text-9xl font-serif text-structure leading-none mb-8">
+            <h1 className="text-5xl md:text-8xl font-serif text-structure leading-[0.9] tracking-tight">
               Ar. Shubhangi <br />
               <span className="italic text-primary">Wahane.</span>
             </h1>
           </Reveal>
-          <Reveal delay={0.3} width="100%">
-            <p className="text-xl md:text-2xl font-sans font-light tracking-widest uppercase text-structure/60">
+          <Reveal delay={0.4} width="100%">
+            <p className="text-sm md:text-lg font-sans font-light tracking-[0.4em] uppercase text-structure/40">
               Architect & Artist / Nagpur — Mumbai
             </p>
           </Reveal>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-12 flex flex-col items-center gap-4 group cursor-pointer"
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+        >
+          <span className="text-[10px] uppercase tracking-[0.5em] text-structure/40 group-hover:text-primary transition-colors font-sans">
+            Scroll to Explore
+          </span>
+          <div className="w-px h-24 bg-structure/10 relative overflow-hidden">
+            <motion.div 
+              animate={{ y: [0, 96, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-0 left-0 w-full h-1/2 bg-linear-to-b from-transparent via-primary to-transparent"
+            />
+          </div>
+        </motion.div>
       </section>
 
-      {/* Portrait & Biography */}
-      <section className="px-6 md:px-12 mb-32 md:mb-48">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true }}
-            className="relative aspect-3/4 rounded-2xl overflow-hidden shadow-2xl"
-          >
-            <Image
-              src="/images/shubhangi_portrait.png"
-              alt="Ar. Shubhangi Wahane"
-              fill
-              className="object-cover"
-              priority
-            />
-          </motion.div>
-
-          <div className="space-y-12">
+      {/* Biography Section (Redesigned Centered Layout) */}
+      <section className="px-6 md:px-12 mb-32 md:mb-48 relative overflow-hidden">
+        {/* Decorative Background Element */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl aspect-square bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
+        
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-16">
+          <div className="space-y-8">
             <Reveal width="100%">
-              <div className="space-y-6">
-                <h2 className="text-4xl md:text-5xl font-serif text-structure">
-                  A Love Affair <span className="italic">with Art.</span>
-                </h2>
-                <p className="text-lg md:text-xl text-structure/70 leading-relaxed font-light">
-                  "My love affair with art fuels every project I take on, infusing each design with creativity and soul. Architecture is not just about buildings; it's about bringing architectural dreams to life with a touch of artistry."
-                </p>
-              </div>
+              <h2 className="text-5xl md:text-8xl font-serif text-structure leading-[0.9] tracking-tight">
+                A Love Affair <br />
+                <span className="italic text-primary">with Art.</span>
+              </h2>
             </Reveal>
-
             <Reveal delay={0.2} width="100%">
-              <p className="text-base md:text-lg text-structure/60 leading-relaxed">
-                With a deep understanding of my clients' needs, I bring empathy and intuition to every project, ensuring that the results exceed expectations. My journey over the last 3 years has been one of constant collaboration—working alongside architects, artists, contractors, and realtors across Nagpur and Mumbai to create spaces that breathe.
+              <p className="text-2xl md:text-3xl text-structure/80 leading-relaxed font-light font-serif italic max-w-2xl mx-auto">
+                "My love affair with art fuels every project I take on, infusing each design with creativity and soul."
               </p>
             </Reveal>
+          </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-8 pt-8 border-t border-structure/10">
-              {stats.map((stat, i) => (
-                <Reveal key={stat.label} delay={0.1 * i}>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-primary">
+          <div className="space-y-8 max-w-2xl">
+            <Reveal delay={0.3} width="100%">
+              <p className="text-lg md:text-xl text-structure/60 leading-relaxed font-sans font-light">
+                Architecture is not just about buildings; it's about bringing architectural dreams to life with a touch of artistry. 
+                With a deep understanding of my clients' needs, I bring empathy and intuition to every project, 
+                ensuring that the results exceed expectations.
+              </p>
+            </Reveal>
+            <Reveal delay={0.4} width="100%">
+              <p className="text-lg md:text-xl text-structure/60 leading-relaxed font-sans font-light">
+                My journey over the last 3 years has been one of constant collaboration—working alongside 
+                architects, artists, contractors, and realtors across Nagpur and Mumbai to create spaces that breathe.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* Stats Grid - Premium horizontal layout */}
+          <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 pt-16 border-t border-structure/10">
+            {stats.map((stat, i) => (
+              <Reveal key={stat.label} delay={0.1 * i}>
+                <div className="space-y-3 group">
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="w-12 h-12 rounded-full bg-structure/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
                       {stat.icon}
-                      <span className="text-2xl font-serif text-structure">{stat.value}</span>
                     </div>
-                    <p className="text-xs uppercase tracking-widest text-structure/40 font-sans">
-                      {stat.label}
-                    </p>
+                    <span className="text-3xl font-serif text-structure tracking-tight">{stat.value}</span>
                   </div>
-                </Reveal>
-              ))}
-            </div>
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-structure/40 font-sans font-medium">
+                    {stat.label}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
