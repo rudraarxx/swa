@@ -58,8 +58,28 @@ export function Preloader() {
             opacity: 0,
             transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
           }}
-          className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-canvas"
+          className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-canvas overflow-hidden"
         >
+          {/* Cinematic Background Video */}
+          <motion.div
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 0.2, scale: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            className="absolute inset-0 w-full h-full pointer-events-none"
+          >
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover blur-[8px] grayscale contrast-125"
+            >
+              <source src="/kling_20260328_VIDEO_Image1A_cl_4659_0.mp4" type="video/mp4" />
+            </video>
+            {/* Subtle Gradient Overlay for readability */}
+            <div className="absolute inset-0 bg-linear-to-b from-canvas/40 via-transparent to-canvas/40" />
+          </motion.div>
+
           <div className="relative flex flex-col items-center">
             {/* Logo Animation */}
             <motion.div
@@ -104,19 +124,20 @@ export function Preloader() {
             </motion.span>
           </div>
 
-          {/* Decorative background elements */}
+          {/* Decorative background glow (kept for subtle depth) */}
           <motion.div
             animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.3, 0.5, 0.3],
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.2, 0.1],
             }}
             transition={{
-              duration: 4,
+              duration: 6,
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"
           />
+
         </motion.div>
       )}
     </AnimatePresence>
