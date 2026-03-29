@@ -16,9 +16,9 @@ export function QuoteSection() {
           <div className="space-y-16">
             <div className="space-y-6">
               <Reveal width="100%">
-                <h2 className="text-4xl md:text-7xl font-serif leading-tight text-structure">
-                  Bring your vision <br />
-                  <span className="italic text-primary">to life.</span>
+                <h2 className="text-3xl md:text-5xl font-serif leading-tight text-structure">
+                  Bringing architectural <br />
+                  <span className="text-primary font-bold">dreams to life.</span>
                 </h2>
               </Reveal>
               <Reveal delay={0.2} width="100%">

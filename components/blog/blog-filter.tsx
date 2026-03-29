@@ -107,7 +107,7 @@ export function BlogFilter() {
           placeholder="Search perspectives..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="pl-12 pr-12 h-14 bg-white border-structure/10 rounded-full focus-visible:ring-primary/20 transition-all font-serif italic text-lg shadow-sm"
+          className="pl-12 pr-12 h-14 bg-white border-structure/10 rounded-full focus-visible:ring-primary/20 transition-all font-serif text-lg shadow-sm"
         />
         {search && (
           <button

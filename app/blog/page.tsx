@@ -18,9 +18,9 @@ export default function BlogPage() {
             <div className="flex items-center gap-3 text-primary">
               <span className="font-sans font-bold uppercase tracking-[0.3em] text-[10px]">Perspectives</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif italic text-structure leading-tight">
+            <h1 className="text-5xl md:text-7xl font-serif text-structure leading-tight">
               Architectural <br />
-              <span className="text-primary not-italic font-normal text-stroke-thin">Narratives.</span>
+              <span className="text-primary font-normal text-stroke-thin">Narratives.</span>
             </h1>
             <p className="text-lg text-structure/70 font-serif leading-relaxed">
               A curated collection of thoughts on space, structure, and the 

@@ -44,7 +44,7 @@ export function TestimonialSection() {
               Kind Words
             </h2>
             <p className="text-4xl md:text-6xl font-serif leading-tight">
-              What our <span className="italic text-primary">clients say.</span>
+              What our <span className="text-primary font-bold">clients say.</span>
             </p>
           </div>
         </Reveal>
@@ -74,7 +74,7 @@ export function TestimonialSection() {
                     <Star key={i} size={14} className="fill-primary text-primary" />
                   ))}
                 </div>
-                <p className="text-lg md:text-xl font-light text-white/70 leading-relaxed whitespace-normal italic font-serif">
+                <p className="text-lg md:text-xl font-light text-white/70 leading-relaxed whitespace-normal font-serif">
                   "{t.text}"
                 </p>
               </div>

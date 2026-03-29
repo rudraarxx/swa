@@ -10,9 +10,9 @@ export function Footer() {
         {/* Conversation Starter */}
         <div className="mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-b border-background/10 pb-20">
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-6xl font-serif italic leading-tight">
+            <h2 className="text-2xl md:text-4xl font-serif leading-tight">
               Ready to draft <br />
-              <span className="text-primary not-italic font-normal">your next perspective?</span>
+              <span className="text-primary font-normal">your next perspective?</span>
             </h2>
             <p className="text-lg opacity-60 font-serif max-w-md">
               Whether you're planning a sanctuary or a structure of scale, our doors are open for dialogue.

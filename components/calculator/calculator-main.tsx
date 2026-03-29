@@ -36,7 +36,7 @@ export function CalculatorMain() {
   const [state, setState] = useState<string>("");
   const [city, setCity] = useState<string>("");
   const [area, setArea] = useState<string>("1500");
-  const [floors, setFloors] = useState<string>("1");
+  const [level, setLevel] = useState<string>("1");
   const [scope, setScope] = useState<string>("turnkey");
   const [quality, setQuality] = useState<string>("premium");
   const [result, setResult] = useState<CalculationResult | null>(null);
@@ -56,14 +56,16 @@ export function CalculatorMain() {
     
     const selectedQuality = ratesData.qualities.find(q => q.id === quality);
     const selectedScope = ratesData.scopes.find(s => s.id === scope);
-    if (!selectedQuality || !selectedScope) return;
+    const selectedLevel = ratesData.levels.find(l => l.id === level);
+    if (!selectedQuality || !selectedScope || !selectedLevel) return;
 
     const res = calculateConstructionCost(
       selectedCity.multiplier,
       selectedCity.baseRate,
       Number(area),
       selectedQuality.multiplier,
-      selectedScope.multiplier
+      selectedScope.multiplier,
+      selectedLevel.multiplier
     );
     
     setResult(res);
@@ -121,7 +123,7 @@ export function CalculatorMain() {
                     />
                   </div>
                   <p className={cn(
-                    "font-serif italic text-xs transition-opacity duration-500",
+                    "font-serif text-xs transition-opacity duration-500",
                     isActive ? "opacity-100" : "opacity-0"
                   )}>
                     {s.description}
@@ -132,7 +134,7 @@ export function CalculatorMain() {
           </div>
 
           <div className="space-y-4 md:hidden">
-            <h2 className="text-3xl font-serif italic text-structure leading-tight">
+            <h2 className="text-xl font-serif text-structure leading-tight">
               {currentStep?.description || "Calculation Complete"}
             </h2>
             <p className="text-structure/40 font-sans text-[10px] tracking-widest uppercase">
@@ -157,14 +159,14 @@ export function CalculatorMain() {
                         <MapPin className="w-4 h-4" />
                         <h3 className="font-sans font-bold uppercase tracking-widest text-[10px]">Context</h3>
                       </div>
-                      <h4 className="text-2xl font-serif italic text-structure">Where is the sanctuary <br/>being built?</h4>
+                      <h4 className="text-2xl font-serif text-structure">Where is the sanctuary <br/>being built?</h4>
                     </div>
 
                     <div className="space-y-8">
                       <div className="group space-y-3">
                         <Label className="text-[10px] uppercase tracking-widest text-structure/40 group-focus-within:text-primary transition-colors">Select State</Label>
                         <Select value={state} onValueChange={(val) => { setState(val); setCity(""); }}>
-                          <SelectTrigger className="border-none bg-structure/2 hover:bg-structure/5 rounded-0 h-16 text-lg font-serif italic px-0 border-b border-structure/10 focus:ring-0">
+                          <SelectTrigger className="border-none bg-structure/2 hover:bg-structure/5 rounded-0 h-16 text-lg font-serif px-0 border-b border-structure/10 focus:ring-0">
                             <SelectValue placeholder="Chose state..." />
                           </SelectTrigger>
                           <SelectContent className="border-structure/10 shadow-2xl">
@@ -184,7 +186,7 @@ export function CalculatorMain() {
                           >
                             <Label className="text-[10px] uppercase tracking-widest text-structure/40 group-focus-within:text-primary transition-colors">Select City</Label>
                             <Select value={city} onValueChange={setCity}>
-                              <SelectTrigger className="border-none bg-structure/2 hover:bg-structure/5 rounded-0 h-16 text-lg font-serif italic px-0 border-b border-structure/10 focus:ring-0">
+                              <SelectTrigger className="border-none bg-structure/2 hover:bg-structure/5 rounded-0 h-16 text-lg font-serif px-0 border-b border-structure/10 focus:ring-0">
                                 <SelectValue placeholder="Chose city..." />
                               </SelectTrigger>
                               <SelectContent className="border-structure/10 shadow-2xl">
@@ -227,43 +229,43 @@ export function CalculatorMain() {
                         <Ruler className="w-4 h-4" />
                         <h3 className="font-sans font-bold uppercase tracking-widest text-[10px]">Volume</h3>
                       </div>
-                      <h4 className="text-2xl font-serif italic text-structure">What is the scale of <br/>your vision?</h4>
+                      <h4 className="text-2xl font-serif text-structure">What is the scale of <br/>your vision?</h4>
                     </div>
 
                     <div className="space-y-12">
                       <div className="group space-y-4">
                         <Label className="text-[10px] uppercase tracking-widest text-structure/40 group-focus-within:text-primary transition-colors">Built-up Area</Label>
-                        <div className="relative">
+                        <div className="relative group/input flex items-end border-b-2 border-structure/5 focus-within:border-primary transition-all pb-2">
                           <Input 
                             id="area"
                             type="number"
                             value={area}
                             onChange={(e) => setArea(e.target.value)}
-                            className="border-none bg-transparent rounded-0 h-16 text-4xl font-serif italic px-0 border-b border-structure/10 focus-visible:ring-0 focus-visible:border-primary transition-all pr-12"
+                            className="border-none bg-transparent rounded-none h-16 text-5xl font-serif px-0 focus-visible:ring-0 w-full"
                             placeholder="1500"
                           />
-                          <span className="absolute right-0 bottom-4 font-sans font-bold text-[10px] uppercase tracking-widest opacity-20 text-structure">sq.ft</span>
+                          <span className="font-sans font-bold text-[10px] uppercase tracking-[0.3em] opacity-20 text-structure group-focus-within/input:opacity-100 group-focus-within/input:text-primary transition-all mb-4 shrink-0">sq.ft</span>
                         </div>
                       </div>
 
                       <div className="group space-y-4">
-                        <Label className="text-[10px] uppercase tracking-widest text-structure/40 group-focus-within:text-primary transition-colors">Elevation Level</Label>
-                        <RadioGroup value={floors} onValueChange={setFloors} className="grid grid-cols-3 gap-3">
-                          {[
-                            { id: "1", label: "G", sub: "1 Floor" },
-                            { id: "2", label: "G+1", sub: "2 Floors" },
-                            { id: "3", label: "G+2", sub: "3 Floors" },
-                          ].map((f) => (
+                        <Label className="text-[10px] uppercase tracking-widest text-structure/40 group-focus-within:text-primary transition-colors">Project Level</Label>
+                        <RadioGroup value={level} onValueChange={setLevel} className="flex flex-wrap gap-2">
+                          {ratesData.levels.map((f) => (
                             <Label
                               key={f.id}
                               className={cn(
-                                "flex flex-col items-center justify-center p-4 border rounded-xl cursor-pointer transition-all aspect-square",
-                                floors === f.id ? "border-primary bg-primary/5 text-primary" : "border-structure/10 hover:bg-structure/2 sm:bg-white text-structure/40"
+                                "inline-flex items-center gap-2 px-4 py-2.5 border rounded-full cursor-pointer transition-all duration-300 whitespace-nowrap",
+                                level === f.id 
+                                  ? "border-primary bg-primary/10 text-primary" 
+                                  : "border-structure/10 hover:border-structure/20 text-structure/50"
                               )}
                             >
                               <RadioGroupItem value={f.id} className="sr-only" />
-                              <span className="font-serif italic text-xl mb-1">{f.label}</span>
-                              <span className="font-sans font-bold text-[8px] tracking-widest uppercase opacity-60">{f.sub}</span>
+                              <span className="font-serif text-sm">{f.label}</span>
+                              <span className="font-sans font-bold text-[8px] tracking-widest uppercase opacity-50">
+                                {f.sub}
+                              </span>
                             </Label>
                           ))}
                         </RadioGroup>
@@ -304,7 +306,7 @@ export function CalculatorMain() {
                         <Sparkles className="w-4 h-4" />
                         <h3 className="font-sans font-bold uppercase tracking-widest text-[10px]">Intent</h3>
                       </div>
-                      <h2 className="text-4xl md:text-5xl font-serif italic text-structure">Select your project paradigm.</h2>
+                      <h2 className="text-2xl md:text-4xl font-serif text-structure">Select your project paradigm.</h2>
                     </div>
 
                   <RadioGroup value={scope} onValueChange={setScope} className="grid gap-6">
@@ -324,7 +326,7 @@ export function CalculatorMain() {
                            <span className="font-sans font-black text-sm">{s.id[0].toUpperCase()}</span>
                         </div>
                         <div className="flex-1 space-y-1">
-                          <span className="font-serif italic text-2xl text-structure">{s.name}</span>
+                          <span className="font-serif text-2xl text-structure">{s.name}</span>
                           <p className="text-[10px] text-structure/50 uppercase tracking-widest leading-relaxed max-w-sm">
                             {s.description}
                           </p>
@@ -372,7 +374,7 @@ export function CalculatorMain() {
                         <Sparkles className="w-4 h-4" />
                         <h3 className="font-sans font-bold uppercase tracking-widest text-[10px]">Finish</h3>
                       </div>
-                      <h2 className="text-4xl md:text-5xl font-serif italic text-structure">Choose your tactile standard.</h2>
+                      <h2 className="text-2xl md:text-4xl font-serif text-structure">Choose your tactile standard.</h2>
                     </div>
 
                   <RadioGroup value={quality} onValueChange={setQuality} className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -391,7 +393,7 @@ export function CalculatorMain() {
                         )}>
                           {q.id}
                         </span>
-                        <span className="font-serif italic text-2xl text-structure mb-4">{q.name}</span>
+                        <span className="font-serif text-2xl text-structure mb-4">{q.name}</span>
                         <p className="text-[10px] text-structure/50 uppercase tracking-widest leading-relaxed">
                           {q.description}
                         </p>
@@ -443,12 +445,12 @@ export function CalculatorMain() {
                     <Calculator className="w-10 h-10" />
                   </motion.div>
                   <div className="space-y-2">
-                    <h3 className="text-4xl font-serif italic text-structure">Estimate Complete</h3>
+                    <h3 className="text-4xl font-serif text-structure">Estimate Complete</h3>
                     <p className="text-structure/40 font-sans text-xs uppercase tracking-widest">
                       v1.2 // Architectural Logic
                     </p>
                   </div>
-                  <p className="text-structure/60 text-lg font-serif italic max-w-sm mx-auto">
+                  <p className="text-structure/60 text-lg font-serif max-w-sm mx-auto">
                     Your preliminary construction roadmap has been generated based on current precision data for {city}.
                   </p>
                   <div className="pt-8">
@@ -481,6 +483,7 @@ export function CalculatorMain() {
                   city={city}
                   quality={ratesData.qualities.find(q => q.id === quality)?.name || quality}
                   scope={ratesData.scopes.find(s => s.id === scope)?.name || scope}
+                  level={ratesData.levels.find(l => l.id === level)?.label || level}
                 />
               ) : (
                 <div className="h-full min-h-[500px] border border-structure/5 rounded-3xl flex flex-col items-center justify-center p-16 text-center bg-white shadow-xl relative overflow-hidden group">
@@ -494,8 +497,8 @@ export function CalculatorMain() {
                     <div className="absolute inset-0 bg-structure/5 rounded-full scale-150 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <Calculator className="w-10 h-10" />
                   </motion.div>
-                  <p className="font-serif italic text-structure/80 text-2xl leading-relaxed mb-4">
-                    The vision is <br/>waiting to be <br/><span className="text-primary not-italic font-normal">quantified.</span>
+                  <p className="font-serif text-structure/80 text-2xl leading-relaxed mb-4">
+                    The vision is <br/>waiting to be <br/><span className="text-primary font-normal">quantified.</span>
                   </p>
                   <p className="text-[10px] text-structure/40 uppercase tracking-[0.3em] font-sans">
                     Complete your perspective <br/>to view costs

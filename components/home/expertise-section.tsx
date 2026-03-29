@@ -72,7 +72,7 @@ export function ExpertiseSection() {
                 </h2>
                 <p className="text-5xl md:text-7xl font-serif leading-[1.1]">
                   The Art of <br />
-                  <span className="italic text-primary">Spatial Alchemy.</span>
+                  <span className="text-primary font-bold">Spatial Alchemy.</span>
                 </p>
               </div>
             </Reveal>
@@ -125,7 +125,7 @@ export function ExpertiseSection() {
               <Float>
                 <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full bg-white/5 backdrop-blur-3xl border border-white/10 flex items-center justify-center">
                   <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse" />
-                  <span className="text-2xl font-serif italic z-10">SWA.</span>
+                  <span className="text-2xl font-serif z-10">SWA.</span>
                 </div>
               </Float>
 

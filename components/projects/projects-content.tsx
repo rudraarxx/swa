@@ -11,14 +11,15 @@ export function ProjectsContent() {
         {/* Header */}
         <div className="space-y-6 max-w-2xl text-center mx-auto mb-20">
           <Reveal width="100%">
-            <h1 className="text-5xl md:text-8xl font-serif text-structure">
+            <h1 className="text-4xl md:text-6xl font-serif text-structure">
               Portfolio
             </h1>
           </Reveal>
           <Reveal delay={0.2} width="100%">
             <p className="text-lg md:text-xl font-sans text-structure/60 leading-relaxed">
-              Expeditions in light, materiality, and the architecture of weightlessness. 
-              A curated journey through our architectural landmarks.
+              Expeditions in light, materiality, and the architecture of
+              weightlessness. A curated journey through our architectural
+              landmarks.
             </p>
           </Reveal>
         </div>

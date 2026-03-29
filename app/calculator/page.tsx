@@ -18,9 +18,9 @@ export default function CalculatorPage() {
               <Calculator className="w-5 h-5" />
               <span className="font-sans font-bold uppercase tracking-[0.3em] text-[10px]">Planning Tools</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif italic text-structure leading-tight">
-              Calculated <br />
-              <span className="text-primary not-italic font-normal">Perspectives.</span>
+            <h1 className="text-5xl md:text-7xl font-serif text-structure leading-tight">
+              Quantifiable <br />
+              <span className="text-primary font-normal">Perspectives.</span>
             </h1>
             <p className="text-lg text-structure/70 font-serif leading-relaxed">
               Financial transparency is the foundation of every successful project. 
@@ -46,19 +46,19 @@ export default function CalculatorPage() {
         {/* FAQ / Info Section */}
         <div className="mt-32 grid md:grid-cols-3 gap-12 border-t border-structure/10 pt-20">
           <div className="space-y-4">
-            <h3 className="text-xl font-serif italic text-structure">How it works</h3>
+            <h3 className="text-xl font-serif text-structure">How it works</h3>
             <p className="text-sm text-structure/60 font-sans leading-relaxed">
               We aggregate current commodity prices and labor rates across major Indian hubs to provide you with a realistic baseline for your construction budget.
             </p>
           </div>
           <div className="space-y-4">
-            <h3 className="text-xl font-serif italic text-structure">Location specific</h3>
+            <h3 className="text-xl font-serif text-structure">Location specific</h3>
             <p className="text-sm text-structure/60 font-sans leading-relaxed">
               Material logistics and specialized labor vary by up to 40% between cities. Our multipliers account for these geographical nuances.
             </p>
           </div>
           <div className="space-y-4">
-            <h3 className="text-xl font-serif italic text-structure">Disclaimer</h3>
+            <h3 className="text-xl font-serif text-structure">Disclaimer</h3>
             <p className="text-sm text-structure/60 font-sans leading-relaxed">
               These figures are preliminary estimates. Final costs depend on site soil quality, architectural complexity, and market fluctuations.
             </p>

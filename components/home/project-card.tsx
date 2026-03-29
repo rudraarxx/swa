@@ -58,7 +58,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <p className="text-sm font-sans tracking-wide text-structure/60 uppercase">
               {project.category} <span className="mx-1">/</span> {project.location}
             </p>
-            <p className="text-xs font-sans text-structure/40 italic">
+            <p className="text-xs font-sans text-structure/40">
               Client: {project.clientName}
             </p>
           </div>

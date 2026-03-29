@@ -26,9 +26,9 @@ export function RelatedPosts({ currentPost }: RelatedPostsProps) {
             <span className="text-[10px] uppercase tracking-[0.3em] font-sans font-bold text-primary">
               Continue Reading
             </span>
-            <h2 className="text-4xl md:text-5xl font-serif italic text-structure leading-tight">
-              Related <br />
-              <span className="text-primary not-italic font-normal text-stroke-thin">Perspectives.</span>
+            <h2 className="text-2xl md:text-3xl font-serif text-structure leading-tight">
+              More <br />
+              <span className="text-primary font-normal text-stroke-thin">Perspectives.</span>
             </h2>
           </div>
         </div>

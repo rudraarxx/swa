@@ -11,7 +11,7 @@ export function FounderSection() {
     <section className="relative py-32 md:py-56 bg-white overflow-hidden">
       {/* Background Signature Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <span className="text-[30vw] font-serif italic text-black/5 leading-none whitespace-nowrap">
+        <span className="text-[30vw] font-serif text-black/5 leading-none whitespace-nowrap">
           SW.
         </span>
       </div>
@@ -32,9 +32,9 @@ export function FounderSection() {
             </Reveal>
 
             <Reveal delay={0.2} width="100%">
-              <h2 className="text-6xl md:text-9xl font-serif leading-[1.05] tracking-tight">
+              <h2 className="text-4xl md:text-6xl font-serif leading-[1.05] tracking-tight">
                 Ar. Shubhangi <br />
-                <span className="italic text-primary">Wahane.</span>
+                <span className="text-primary uppercase tracking-widest text-xs font-sans font-bold">Wahane.</span>
               </h2>
             </Reveal>
           </div>
@@ -44,7 +44,7 @@ export function FounderSection() {
             {/* The Hero Quote */}
             <div className="md:col-span-12 lg:col-span-8 lg:col-start-3 text-center space-y-12">
               <Reveal delay={0.4} width="100%">
-                <p className="text-2xl md:text-4xl font-serif italic text-structure leading-relaxed max-w-3xl mx-auto">
+                <p className="text-2xl md:text-4xl font-serif text-structure leading-relaxed max-w-3xl mx-auto">
                   "Architecture is not just about buildings; it's about bringing dreams to life with a touch of artistry."
                 </p>
               </Reveal>

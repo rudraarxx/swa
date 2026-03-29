@@ -1,7 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, CheckCircle2, MapPin, Sparkles, TrendingUp } from "lucide-react";
+import {
+  Award,
+  CheckCircle2,
+  MapPin,
+  Sparkles,
+  TrendingUp,
+} from "lucide-react";
 import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { Float } from "@/components/motion/float";
@@ -28,64 +34,23 @@ const stats = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background pb-24">
-      {/* Editorial 100vh Hero Section */}
-      <section className="relative h-screen px-6 md:px-12 flex flex-col items-center justify-center text-center overflow-hidden pt-40 md:pt-48">
-        {/* Large Decorative Initials */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none opacity-[0.02] text-[25vw] font-serif leading-none italic whitespace-nowrap -z-10">
-          SW.
-        </div>
-        
-        <div className="max-w-7xl mx-auto space-y-12 mb-24 relative z-10">
-          <Reveal width="100%">
-            <h1 className="text-5xl md:text-8xl font-serif text-structure leading-[0.9] tracking-tight">
-              Ar. Shubhangi <br />
-              <span className="italic text-primary">Wahane.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.4} width="100%">
-            <p className="text-sm md:text-lg font-sans font-light tracking-[0.4em] uppercase text-structure/40">
-              Architect & Artist / Nagpur — Mumbai
-            </p>
-          </Reveal>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-12 flex flex-col items-center gap-4 group cursor-pointer"
-          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-        >
-          <span className="text-[10px] uppercase tracking-[0.5em] text-structure/40 group-hover:text-primary transition-colors font-sans">
-            Scroll to Explore
-          </span>
-          <div className="w-px h-24 bg-structure/10 relative overflow-hidden">
-            <motion.div 
-              animate={{ y: [0, 96, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 left-0 w-full h-1/2 bg-linear-to-b from-transparent via-primary to-transparent"
-            />
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Biography Section (Redesigned Centered Layout) */}
-      <section className="px-6 md:px-12 mb-32 md:mb-48 relative overflow-hidden">
+      {/* Biography Section (Now New Hero) */}
+      <section className="px-6 md:px-12 pt-48 pb-32 md:pb-48 relative overflow-hidden">
         {/* Decorative Background Element */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl aspect-square bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
-        
+
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-16">
           <div className="space-y-8">
             <Reveal width="100%">
-              <h2 className="text-5xl md:text-8xl font-serif text-structure leading-[0.9] tracking-tight">
+              <h1 className="text-4xl md:text-6xl font-serif text-structure leading-[0.9] tracking-tight">
                 A Love Affair <br />
-                <span className="italic text-primary">with Art.</span>
-              </h2>
+                <span className="text-primary uppercase tracking-widest text-sm font-sans font-bold">with Art.</span>
+              </h1>
             </Reveal>
             <Reveal delay={0.2} width="100%">
-              <p className="text-2xl md:text-3xl text-structure/80 leading-relaxed font-light font-serif italic max-w-2xl mx-auto">
-                "My love affair with art fuels every project I take on, infusing each design with creativity and soul."
+              <p className="text-xl md:text-2xl text-structure/80 leading-relaxed font-light font-sans max-w-2xl mx-auto">
+                "My love affair with art fuels every project I take on, infusing
+                each design with creativity and soul."
               </p>
             </Reveal>
           </div>
@@ -93,15 +58,19 @@ export default function AboutPage() {
           <div className="space-y-8 max-w-2xl">
             <Reveal delay={0.3} width="100%">
               <p className="text-lg md:text-xl text-structure/60 leading-relaxed font-sans font-light">
-                Architecture is not just about buildings; it's about bringing architectural dreams to life with a touch of artistry. 
-                With a deep understanding of my clients' needs, I bring empathy and intuition to every project, 
-                ensuring that the results exceed expectations.
+                Architecture is not just about buildings; it's about bringing
+                architectural dreams to life with a touch of artistry. With a
+                deep understanding of my clients' needs, I bring empathy and
+                intuition to every project, ensuring that the results exceed
+                expectations.
               </p>
             </Reveal>
             <Reveal delay={0.4} width="100%">
               <p className="text-lg md:text-xl text-structure/60 leading-relaxed font-sans font-light">
-                My journey over the last 3 years has been one of constant collaboration—working alongside 
-                architects, artists, contractors, and realtors across Nagpur and Mumbai to create spaces that breathe.
+                My journey over the last 3 years has been one of constant
+                collaboration—working alongside architects, artists,
+                contractors, and realtors across Nagpur and Mumbai to create
+                spaces that breathe.
               </p>
             </Reveal>
           </div>
@@ -115,7 +84,9 @@ export default function AboutPage() {
                     <div className="w-12 h-12 rounded-full bg-structure/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
                       {stat.icon}
                     </div>
-                    <span className="text-3xl font-serif text-structure tracking-tight">{stat.value}</span>
+                    <span className="text-3xl font-serif text-structure tracking-tight">
+                      {stat.value}
+                    </span>
                   </div>
                   <p className="text-[10px] uppercase tracking-[0.3em] text-structure/40 font-sans font-medium">
                     {stat.label}
@@ -134,26 +105,29 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <Reveal width="100%">
-                <h2 className="text-5xl md:text-7xl font-serif leading-tight">
+                <h2 className="text-3xl md:text-5xl font-serif leading-tight">
                   The Core <br />
-                  <span className="italic text-primary">of Connection.</span>
+                  <span className="text-primary font-bold">of Connection.</span>
                 </h2>
               </Reveal>
               <Reveal delay={0.3} width="100%">
                 <p className="text-lg text-white/60 leading-relaxed font-light font-sans max-w-lg">
-                  Beyond the technical blueprints lies the heart of the home. We prioritize the human experience, using intuition and empathy to bridge the gap between imagination and reality. This is our Spatial Alchemy.
+                  Beyond the technical blueprints lies the heart of the home. We
+                  prioritize the human experience, using intuition and empathy
+                  to bridge the gap between imagination and reality. This is our
+                  Spatial Alchemy.
                 </p>
               </Reveal>
             </div>
-            
+
             <div className="flex justify-center">
               <Float>
                 <div className="w-64 h-64 md:w-96 md:h-96 rounded-full border border-white/10 flex items-center justify-center relative">
-                   <div className="absolute inset-0 bg-primary/5 rounded-full animate-pulse" />
-                   <Sparkles size={48} className="text-primary/50" />
-                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full border border-white/10 text-[10px] uppercase tracking-widest">
-                      Empathy First
-                   </div>
+                  <div className="absolute inset-0 bg-primary/5 rounded-full animate-pulse" />
+                  <Sparkles size={48} className="text-primary/50" />
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full border border-white/10 text-[10px] uppercase tracking-widest">
+                    Empathy First
+                  </div>
                 </div>
               </Float>
             </div>
@@ -166,9 +140,13 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start gap-12">
             <div className="max-w-md space-y-6">
-              <h2 className="text-4xl font-serif text-structure">Full Spectrum Architecture.</h2>
+              <h2 className="text-2xl font-serif text-structure">
+                Full Spectrum Architecture.
+              </h2>
               <p className="text-structure/60 leading-relaxed">
-                From initial design consultancy and plan approvals to advanced BIM technology and final construction drawings. Our services cover every phase of the project lifecycle.
+                From initial design consultancy and plan approvals to advanced
+                BIM technology and final construction drawings. Our services
+                cover every phase of the project lifecycle.
               </p>
             </div>
 

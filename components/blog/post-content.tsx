@@ -17,9 +17,9 @@ export function PostContent({ post }: PostContentProps) {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="prose prose-lg md:prose-xl prose-serif prose-structure max-w-none 
-            prose-h3:text-3xl prose-h3:font-serif prose-h3:italic prose-h3:mt-16 prose-h3:mb-8
+            prose-h3:text-3xl prose-h3:font-serif prose-h3:mt-16 prose-h3:mb-8
             prose-p:text-structure/70 prose-p:leading-relaxed prose-p:mb-8
-            prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:py-8 prose-blockquote:px-10 prose-blockquote:italic prose-blockquote:text-2xl prose-blockquote:font-serif prose-blockquote:font-medium prose-blockquote:text-primary prose-blockquote:rounded-sm
+            prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:py-8 prose-blockquote:px-10 prose-blockquote:text-2xl prose-blockquote:font-serif prose-blockquote:font-medium prose-blockquote:text-primary prose-blockquote:rounded-sm
             prose-strong:text-structure prose-strong:font-bold"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />

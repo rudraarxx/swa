@@ -69,9 +69,9 @@ export default function ServicesPage() {
             </p>
           </Reveal>
           <Reveal delay={0.2} width="100%">
-            <h1 className="text-5xl md:text-8xl font-serif text-structure leading-none mb-8">
-              The Anatomy <br />
-              <span className="italic text-primary">of Space.</span>
+            <h1 className="text-4xl md:text-6xl font-serif text-structure leading-[0.9] tracking-tight">
+              The Architecture <br />
+              <span className="text-primary font-bold uppercase tracking-widest text-sm font-sans">of Space.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.4} width="100%">
@@ -98,7 +98,7 @@ export default function ServicesPage() {
                       <div className="text-primary font-serif text-5xl opacity-20 mb-4 group-hover:opacity-100 transition-opacity duration-500">
                         0{index + 1}
                       </div>
-                      <h2 className="text-3xl md:text-4xl font-serif text-structure group-hover:text-primary transition-colors duration-500">
+                      <h2 className="text-2xl md:text-3xl font-serif text-structure group-hover:text-primary transition-colors duration-500">
                         {category.title}
                       </h2>
                       <p className="text-structure/60 leading-relaxed font-light">
@@ -136,8 +136,9 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-primary/5 blur-[100px] pointer-events-none" />
         <div className="max-w-3xl mx-auto space-y-12 relative z-10">
           <Reveal width="100%">
-            <h2 className="text-4xl md:text-6xl font-serif">
-              Ready to <span className="italic text-primary">begin?</span>
+            <h2 className="text-3xl md:text-4xl font-serif">
+              Ready to create <br />
+              <span className="text-primary font-bold">your sanctuary?</span>
             </h2>
           </Reveal>
           <Reveal delay={0.2} width="100%">

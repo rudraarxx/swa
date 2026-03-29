@@ -177,7 +177,7 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className="hover:text-primary transition-colors hover:italic"
+                    className="hover:text-primary transition-colors"
                   >
                     {item.name}
                   </Link>

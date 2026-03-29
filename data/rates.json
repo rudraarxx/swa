@@ -65,5 +65,13 @@
   "scopes": [
     { "id": "turnkey", "name": "Turn-Key", "multiplier": 1.0, "description": "Complete construction from foundation to finish." },
     { "id": "renovation", "name": "Renovation", "multiplier": 0.6, "description": "Interior remodeling and structural repairs." }
+  ],
+  "levels": [
+    { "id": "1", "label": "G", "sub": "1 Floor", "multiplier": 1.0 },
+    { "id": "2", "label": "G+1", "sub": "2 Floors", "multiplier": 1.05 },
+    { "id": "3", "label": "G+2", "sub": "3 Floors", "multiplier": 1.10 },
+    { "id": "flat", "label": "Flat", "sub": "Unit Suite", "multiplier": 0.85 },
+    { "id": "duplex", "label": "Duplex", "sub": "2-Story Unit", "multiplier": 1.20 },
+    { "id": "penthouse", "label": "Penthouse", "sub": "Top Floor", "multiplier": 1.35 }
   ]
 }

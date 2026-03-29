@@ -12,9 +12,10 @@ interface ResultsCardProps {
   city: string;
   quality: string;
   scope: string;
+  level: string;
 }
 
-export function ResultsCard({ result, area, city, quality, scope }: ResultsCardProps) {
+export function ResultsCard({ result, area, city, quality, scope, level }: ResultsCardProps) {
   if (!result) return null;
 
   const handleWhatsApp = () => {
@@ -23,6 +24,7 @@ export function ResultsCard({ result, area, city, quality, scope }: ResultsCardP
       city,
       quality,
       scope,
+      level,
       totalCost: result.totalCost,
     });
   };
@@ -52,19 +54,20 @@ export function ResultsCard({ result, area, city, quality, scope }: ResultsCardP
             <div className="flex justify-between items-start">
               <div className="space-y-1">
                 <span className="font-sans font-bold text-[10px] tracking-[0.3em] uppercase text-primary">Preliminary Roadmap</span>
-                <h3 className="text-4xl font-serif italic text-structure">Estimate Summary</h3>
+                <h3 className="text-4xl font-serif text-structure">Estimate Summary</h3>
               </div>
               <div className="text-right">
                 <p className="text-[10px] uppercase tracking-widest text-structure/30 font-sans font-bold">Generated for</p>
-                <p className="font-serif italic text-lg">{city}</p>
+                <p className="text-lg font-serif">{city}</p>
+                <p className="text-[10px] uppercase tracking-widest text-primary/60 font-sans font-bold mt-1">— {level}</p>
               </div>
             </div>
 
             <div className="pt-8">
               <p className="text-[10px] uppercase tracking-widest text-structure/40 font-sans font-bold mb-2">Total Project Investment</p>
-              <h2 className="text-6xl font-sans font-black tracking-tight text-structure">
+              <h2 className="text-4xl font-sans font-black tracking-tight text-structure">
                 {formatCurrency(result.totalCost)}
-                <span className="text-sm font-serif italic text-structure/40 ml-4">*</span>
+                <span className="text-sm font-serif text-structure/40 ml-4">*</span>
               </h2>
             </div>
           </div>
@@ -75,11 +78,11 @@ export function ResultsCard({ result, area, city, quality, scope }: ResultsCardP
           <div className="grid grid-cols-2 gap-12">
             <div className="space-y-1 border-l border-primary/20 pl-6">
               <p className="text-[10px] uppercase tracking-widest text-structure/30 font-sans font-bold">Planned Scale</p>
-              <p className="text-2xl font-serif italic">{area} <span className="text-xs uppercase font-sans tracking-widest opacity-40 font-bold ml-2">sq.ft</span></p>
+              <p className="text-2xl font-serif">{area} <span className="text-xs uppercase font-sans tracking-widest opacity-40 font-bold ml-2">sq.ft</span></p>
             </div>
             <div className="space-y-1 border-l border-primary/20 pl-6">
               <p className="text-[10px] uppercase tracking-widest text-structure/30 font-sans font-bold">Efficiency Rate</p>
-              <p className="text-2xl font-serif italic">{formatCurrency(result.ratePerSqFt)} <span className="text-[10px] uppercase font-sans tracking-widest opacity-40 font-bold ml-2">/ft</span></p>
+              <p className="text-2xl font-serif">{formatCurrency(result.ratePerSqFt)} <span className="text-[10px] uppercase font-sans tracking-widest opacity-40 font-bold ml-2">/ft</span></p>
             </div>
           </div>
 
@@ -94,7 +97,7 @@ export function ResultsCard({ result, area, city, quality, scope }: ResultsCardP
                 <div key={item.label} className="group/item">
                   <div className="flex justify-between items-end mb-4">
                     <div className="space-y-1">
-                      <span className="font-serif italic text-xl text-structure/80 block">{item.label}</span>
+                      <span className="font-serif text-xl text-structure/80 block">{item.label}</span>
                       <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-structure/30">{item.percentage}% Allocation</span>
                     </div>
                     <span className="font-sans font-bold text-lg">{formatCurrency(item.value)}</span>
@@ -141,7 +144,7 @@ export function ResultsCard({ result, area, city, quality, scope }: ResultsCardP
 
         {/* Decorative SWA Tag */}
         <div className="absolute top-0 right-0 p-8">
-            <span className="font-serif italic text-6xl text-structure/5 select-none font-black leading-none">v1.2</span>
+            <span className="font-serif text-6xl text-structure/5 select-none font-black leading-none">v1.2</span>
         </div>
       </div>
     </motion.div>

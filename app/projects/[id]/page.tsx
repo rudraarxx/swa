@@ -56,9 +56,9 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
               </Link>
               
               <Reveal>
-                <h1 className="text-7xl md:text-[10rem] font-serif text-structure leading-[0.8] tracking-tight">
+                <h1 className="text-7xl md:text-[8rem] font-serif text-structure leading-[0.8] tracking-tight">
                   {project.title.split(' ').map((word, i) => (
-                    <span key={i} className={i % 2 !== 0 ? 'italic text-primary/90' : ''}>
+                    <span key={i} className={i % 2 !== 0 ? 'text-primary/90' : ''}>
                       {word}{' '}
                     </span>
                   ))}
@@ -94,7 +94,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 pt-12 items-start">
             <Reveal delay={0.4}>
-              <p className="font-sans text-structure/60 text-xl md:text-3xl leading-relaxed italic font-light tracking-tight max-w-2xl">
+              <p className="font-sans text-structure/60 text-xl md:text-3xl leading-relaxed font-light tracking-tight max-w-2xl">
                 {project.description}
               </p>
             </Reveal>
@@ -226,7 +226,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
           <div className="z-10 text-center">
             <p className="font-sans text-sm tracking-widest uppercase mb-4 opacity-70">Next Project</p>
-            <h2 className="text-4xl md:text-6xl font-serif">{nextProject.title}</h2>
+            <h2 className="text-2xl md:text-4xl font-serif">{nextProject.title}</h2>
             <p className="font-sans text-sm mt-3 opacity-50">{nextProject.category} / {nextProject.location}</p>
           </div>
         </section>

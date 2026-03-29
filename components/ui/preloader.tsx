@@ -72,7 +72,7 @@ export function Preloader() {
               muted
               loop
               playsInline
-              className="absolute inset-0 w-full h-full object-cover blur-[8px] grayscale contrast-125"
+              className="absolute inset-0 w-full h-full object-cover blur-sm grayscale contrast-125"
             >
               <source src="/kling_20260328_VIDEO_Image1A_cl_4659_0.mp4" type="video/mp4" />
             </video>

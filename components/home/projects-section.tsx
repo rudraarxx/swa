@@ -15,9 +15,9 @@ export function ProjectsSection() {
             <h2 className="text-sm font-sans uppercase tracking-widest text-structure/60">
               Selected Works
             </h2>
-            <p className="text-4xl md:text-6xl font-serif text-structure leading-[1.1]">
+            <p className="text-2xl md:text-5xl font-serif text-structure leading-[1.1]">
               Sculpting space with <br />{" "}
-              <i className="font-serif">light, material & memory.</i>
+              <span className="font-serif text-primary font-bold">light, material & memory.</span>
             </p>
           </div>
           <div className="hidden md:block pb-2">
@@ -35,9 +35,9 @@ export function ProjectsSection() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 md:gap-y-24">
-          {projects.slice(0, 4).map((project, index) => (
-            <div key={project.id} className={index % 2 === 1 ? "md:mt-24" : ""}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+          {projects.slice(0, 6).map((project, index) => (
+            <div key={project.id}>
               <ProjectCard project={project} index={index} />
             </div>
           ))}

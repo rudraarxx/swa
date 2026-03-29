@@ -36,9 +36,9 @@ export default function NotFound() {
             >
               Lost in Space
             </motion.h1>
-            <h2 className="text-4xl md:text-6xl font-serif italic leading-tight">
+            <h2 className="text-2xl md:text-4xl font-serif leading-tight">
               A missed perspective, <br />
-              <span className="text-primary not-italic font-normal">an absent plan.</span>
+              <span className="text-primary font-normal">an absent plan.</span>
             </h2>
           </div>
 

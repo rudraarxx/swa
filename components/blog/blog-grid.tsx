@@ -21,7 +21,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
           <SearchX className="w-10 h-10" />
         </div>
         <div className="space-y-2">
-          <h3 className="text-2xl font-serif italic text-structure">No perspectives found</h3>
+          <h3 className="text-2xl font-serif text-structure">No perspectives found</h3>
           <p className="text-structure/40 font-sans text-sm max-w-xs mx-auto">
             Try adjusting your search or category filters to find what you're looking for.
           </p>

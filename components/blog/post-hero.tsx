@@ -60,7 +60,7 @@ export function PostHero({ post }: PostHeroProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.8 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-serif italic text-structure leading-[1.1] tracking-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-serif text-structure leading-[1.1] tracking-tight"
             >
               {post.title}
             </motion.h1>

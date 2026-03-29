@@ -50,7 +50,7 @@ export function BlogCard({ post }: BlogCardProps) {
             {post.date}
           </div>
           
-          <h3 className="text-2xl md:text-3xl font-serif italic text-structure group-hover:text-primary transition-colors leading-tight">
+          <h3 className="text-2xl md:text-3xl font-serif text-structure group-hover:text-primary transition-colors leading-tight">
             {post.title}
           </h3>
           
