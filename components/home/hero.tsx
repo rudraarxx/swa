@@ -1,178 +1,176 @@
-"use client";
+'use client';
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { featuredProjects } from "@/data/projects";
-import { getDriveDirectLink } from "@/lib/image-utils";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
+import { featuredProjects } from '@/data/projects';
+import { getDriveDirectLink } from '@/lib/image-utils';
+import { CharacterReveal } from '../motion/CharacterReveal';
+import { MagneticCursor } from '../motion/MagneticCursor';
+import { LightLeak } from '../motion/LightLeak';
+import { ArrowUpRight } from 'lucide-react';
+
+const BEZIER = [0.22, 1, 0.36, 1] as any;
 
 export function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const [index, setIndex] = useState(0);
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const parallaxTextY = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   const slideNext = useCallback(() => {
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % featuredProjects.length);
-  }, []);
-
-  const slidePrev = useCallback(() => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length);
+    setIndex((prev) => (prev + 1) % featuredProjects.length);
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(slideNext, 6000);
+    const timer = setInterval(slideNext, 8000);
     return () => clearInterval(timer);
   }, [slideNext]);
 
-  const variants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? "100%" : "-100%",
-      opacity: 0,
-      scale: 1.05,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-      scale: 1,
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? "100%" : "-100%",
-      opacity: 0,
-      scale: 0.95,
-    }),
-  };
+  const currentProject = featuredProjects[index];
+  if (!currentProject) return null;
 
-  const project = featuredProjects[currentIndex];
-  // Use the dedicated featuredImage for the hero carousel
-  const imageUrl = getDriveDirectLink(project?.featuredImage || "");
-  const isDriveImage = project?.featuredImage?.includes("drive.google.com") ?? false;
-
-  if (!project) return null;
+  const imageUrl = getDriveDirectLink(currentProject.featuredImage);
+  const metaText = `${currentProject.year} / ${currentProject.category.toUpperCase()} / ${currentProject.location.toUpperCase()}`;
 
   return (
-    <section className="relative w-full pt-32 pb-12 px-6 md:px-12 bg-background min-h-[90vh] flex flex-col">
-      {/* Premium Framed Container */}
-      <div className="relative grow w-full rounded-3xl overflow-hidden bg-secondary/5 group">
-        <AnimatePresence initial={false} custom={direction} mode="popLayout">
+    <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-black font-sans selection:bg-white selection:text-black">
+      {/* Cinematic Gallery */}
+      <div className="absolute inset-0 h-full w-full">
+        <AnimatePresence mode="wait">
           <motion.div
-            key={currentIndex}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { duration: 1.2, ease: [0.32, 0.72, 0, 1] },
-              opacity: { duration: 0.8, ease: "linear" },
-              scale: { duration: 1.2, ease: [0.32, 0.72, 0, 1] },
-            }}
-            className="absolute inset-0 w-full h-full"
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: BEZIER }}
+            className="absolute inset-0 h-full w-full"
+            style={{ y: parallaxY }}
           >
-            {/* Image Container with subtle motion */}
-            <motion.div 
-              className="relative w-full h-full"
-              initial={{ scale: 1.05 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 6, ease: "linear" }}
+            {/* Ken Burns 2.0 Effect */}
+            <motion.div
+              initial={{ scale: 1.25 }}
+              animate={{ scale: 1.05 }}
+              transition={{ duration: 10, ease: 'linear' }}
+              className="relative h-full w-full"
             >
               <Image
                 src={imageUrl}
-                alt={project.title}
+                alt={currentProject.title}
                 fill
                 priority
-                className="object-cover"
-                unoptimized={isDriveImage}
+                className="object-cover brightness-[0.6] grayscale-[0.1]"
+                unoptimized={currentProject.featuredImage?.includes('drive.google.com')}
               />
-              {/* Subtle bottom gradient just for text readability, not darkening the whole image */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80" />
+              {/* Dark Gradient Overlay for legibility */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
             </motion.div>
-
-            {/* Content Overlay */}
-            <div className="absolute inset-0 flex items-end pointer-events-none p-8 md:p-16">
-              <div className="w-full pointer-events-auto flex flex-col md:flex-row md:items-end justify-between gap-8 z-10">
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
-                  className="space-y-4 max-w-2xl"
-                >
-                  <div className="space-y-2">
-                    <span className="text-white/80 text-xs md:text-sm font-sans uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-white/30 backdrop-blur-sm inline-block">
-                      {project.category}
-                    </span>
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-tight">
-                      {project.title}
-                    </h1>
-                  </div>
-                  <p className="text-white/80 font-sans text-sm md:text-base max-w-md line-clamp-2 md:line-clamp-none">
-                    {project.description}
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
-                  className="shrink-0"
-                >
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="inline-flex items-center justify-center w-14 h-14 md:w-32 md:h-32 rounded-full bg-white text-structure hover:bg-primary hover:text-white hover:scale-105 transition-all duration-300"
-                    aria-label={`View ${project.title}`}
-                  >
-                    <div className="flex flex-col items-center justify-center gap-1">
-                      <span className="hidden md:block text-xs font-sans uppercase tracking-widest font-medium">View</span>
-                      <ArrowRight size={24} className="md:-rotate-45 transition-transform" />
-                    </div>
-                  </Link>
-                </motion.div>
-
-              </div>
-            </div>
           </motion.div>
         </AnimatePresence>
-
-        {/* Navigation Controls Overlay */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 px-4 md:px-8 flex justify-between pointer-events-none z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <button
-            onClick={slidePrev}
-            className="pointer-events-auto w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-structure transition-colors"
-            aria-label="Previous image"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button
-            onClick={slideNext}
-            className="pointer-events-auto w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-structure transition-colors"
-            aria-label="Next image"
-          >
-            <ChevronRight size={24} />
-          </button>
-        </div>
-
-        {/* Slide Indicators */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-          {featuredProjects.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setDirection(index > currentIndex ? 1 : -1);
-                setCurrentIndex(index);
-              }}
-              className={`h-1.5 transition-all duration-300 rounded-full ${
-                index === currentIndex ? "w-8 bg-white" : "w-1.5 bg-white/40 hover:bg-white/70"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
+
+      {/* Global Grain Overlay */}
+      <div className="pointer-events-none absolute inset-0 z-10 opacity-20 contrast-[1.1]" style={{ filter: 'url(#noiseFilter)' }} />
+      <svg className="hidden">
+        <filter id="noiseFilter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+      </svg>
+
+      {/* Content Overlay */}
+      <motion.div 
+        style={{ y: parallaxTextY, opacity }}
+        className="relative z-20 flex h-full flex-col justify-between p-6 pt-24 md:p-12 md:pt-32"
+      >
+        {/* Top Meta: Monospaced Tiny Metadata */}
+        <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <motion.div 
+            key={`meta-${index}`}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-white/70"
+          >
+            {metaText}
+          </motion.div>
+          <div className="font-mono text-[10px] tracking-[0.3em] text-white/70">
+            0{index + 1} &mdash; 0{featuredProjects.length}
+          </div>
+        </div>
+
+        {/* Center Content: Massive Typography */}
+        <div className="mb-6 md:mb-8 max-w-5xl">
+          <motion.div 
+            key={`subtitle-${index}`}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="font-mono text-[9px] md:text-[10px] tracking-[0.5em] text-white/80 mb-2 md:mb-3"
+          >
+            {currentProject.category.toUpperCase()}
+          </motion.div>
+          
+          <CharacterReveal 
+            key={`title-${index}`}
+            text={currentProject.title.toUpperCase()} 
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] font-extralight tracking-tighter text-white" 
+          />
+          
+          <motion.p
+            key={`desc-${index}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8, ease: BEZIER }}
+            className="mt-6 max-w-sm text-sm font-light leading-relaxed text-white/60 md:text-base"
+          >
+            {currentProject.description}
+          </motion.p>
+        </div>
+
+        {/* Explore Button: Moved to the right side (White Dot Position) */}
+        <motion.div
+          key={`explore-${index}`}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 1, ease: BEZIER }}
+          className="absolute bottom-32 md:bottom-40 right-6 md:right-16 flex flex-col items-center gap-3 md:gap-4 z-30"
+        >
+          <MagneticCursor strength={0.3}>
+            <button className="group relative flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white hover:text-black">
+              <ArrowUpRight className="h-4 w-4 md:h-5 md:w-5 transition-transform group-hover:rotate-45" />
+              <div className="absolute inset-0 rounded-full border border-white/40 opacity-0 group-hover:animate-ping group-hover:opacity-100" />
+            </button>
+          </MagneticCursor>
+          <span className="font-mono text-[9px] md:text-[10px] tracking-widest text-white/50 origin-center">EXPLORE</span>
+        </motion.div>
+
+        {/* Bottom Bar: Horizontal Indicators */}
+        <div className="flex w-full items-end justify-end border-t border-white/5 pt-4 md:pt-6 pb-4">
+          <div className="flex flex-row gap-2 md:gap-3">
+            {featuredProjects.map((project, i) => (
+              <button
+                key={project.id}
+                onClick={() => setIndex(i)}
+                className="group relative h-[2px] w-8 md:w-12 overflow-hidden bg-white/20 transition-colors hover:bg-white/40"
+                aria-label={`Go to slide ${i + 1}`}
+              >
+                <div
+                  className={`absolute inset-y-0 left-0 bg-white transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    i === index ? 'w-full' : 'w-0'
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      <LightLeak />
     </section>
   );
 }
