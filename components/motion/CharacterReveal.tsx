@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useInView, Variants } from "framer-motion";
+import { useRef } from "react";
 
 interface CharacterRevealProps {
   text: string;
@@ -9,13 +9,17 @@ interface CharacterRevealProps {
   delay?: number;
 }
 
-export function CharacterReveal({ text, className, delay = 0 }: CharacterRevealProps) {
+export function CharacterReveal({
+  text,
+  className,
+  delay = 0,
+}: CharacterRevealProps) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.5 });
 
-  const characters = text.split('');
+  const characters = text.split("");
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -26,13 +30,13 @@ export function CharacterReveal({ text, className, delay = 0 }: CharacterRevealP
     },
   };
 
-  const charVariants = {
-    hidden: { y: '110%' },
+  const charVariants: Variants = {
+    hidden: { y: "110%" },
     visible: {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1], // Quintic Out
+        ease: [0.22, 1, 0.36, 1] as any,
       },
     },
   };
@@ -42,7 +46,7 @@ export function CharacterReveal({ text, className, delay = 0 }: CharacterRevealP
       ref={containerRef}
       variants={containerVariants}
       initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      animate={isInView ? "visible" : "hidden"}
       className={`overflow-hidden flex flex-wrap ${className}`}
     >
       {characters.map((char, index) => (
@@ -51,9 +55,12 @@ export function CharacterReveal({ text, className, delay = 0 }: CharacterRevealP
             variants={charVariants}
             className="inline-block"
             // Ensure spaces preserve their width
-            style={{ display: char === ' ' ? 'inline' : 'inline-block', minWidth: char === ' ' ? '0.25em' : 'auto' }}
+            style={{
+              display: char === " " ? "inline" : "inline-block",
+              minWidth: char === " " ? "0.25em" : "auto",
+            }}
           >
-            {char === ' ' ? '\u00A0' : char}
+            {char === " " ? "\u00A0" : char}
           </motion.span>
         </span>
       ))}
