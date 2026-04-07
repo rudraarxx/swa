@@ -10,16 +10,19 @@ export function Footer() {
         {/* Conversation Starter */}
         <div className="mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-b border-background/10 pb-20">
           <div className="space-y-6">
-            <h2 className="text-2xl md:text-4xl font-serif leading-tight">
+            <h2 className="text-2xl md:text-4xl font-serif! leading-tight">
               Ready to draft <br />
-              <span className="text-primary font-normal">your next perspective?</span>
+              <span className="text-primary font-normal">
+                your next perspective?
+              </span>
             </h2>
-            <p className="text-lg opacity-60 font-serif max-w-md">
-              Whether you're planning a sanctuary or a structure of scale, our doors are open for dialogue.
+            <p className="text-lg opacity-60 font-primary max-w-md">
+              Whether you're planning a sanctuary or a structure of scale, our
+              doors are open for dialogue.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 lg:justify-end">
-            <a 
+            <a
               href={`https://wa.me/917738700860?text=${encodeURIComponent("Hi Shubhangi, I'm ready to discuss my project.")}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -28,7 +31,7 @@ export function Footer() {
               Connect on WhatsApp
               <div className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
             </a>
-            <a 
+            <a
               href="tel:+917738700860"
               className="flex items-center justify-center gap-3 px-8 py-5 border border-background/20 text-background rounded-full font-sans font-bold uppercase tracking-widest text-xs hover:border-primary transition-all"
             >
@@ -41,20 +44,20 @@ export function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-6">
             <div className="w-48">
-            <div className="mb-6">
-              <div className="flex flex-col">
-                <span className="text-6xl md:text-7xl font-serif tracking-tighter text-background leading-none">
-                  SWA
-                  <span className="text-secondary">.</span>
-                </span>
-                <span className="mt-4 text-xs font-sans tracking-[0.3em] uppercase font-bold text-background/80">
-                  Shubhangi Wahane
-                </span>
-                <span className="text-xs font-sans tracking-[0.3em] uppercase text-background/40">
-                  Architects
-                </span>
+              <div className="mb-6">
+                <div className="flex flex-col">
+                  <span className="text-6xl md:text-7xl font-primary tracking-tighter text-background leading-none">
+                    SWA
+                    <span className="text-secondary">.</span>
+                  </span>
+                  <span className="mt-4 text-xs font-sans tracking-[0.3em] uppercase font-bold text-background/80">
+                    Shubhangi Wahane
+                  </span>
+                  <span className="text-xs font-sans tracking-[0.3em] uppercase text-background/40">
+                    Architects
+                  </span>
+                </div>
               </div>
-            </div>
             </div>
             <p className="text-lg md:text-xl opacity-80 max-w-sm font-serif leading-relaxed">
               Grounding ethereal concepts into architectural reality.
@@ -114,8 +117,14 @@ export function Footer() {
               </h3>
               <div className="flex space-x-6">
                 {[
-                  { name: "Instagram", href: "https://www.instagram.com/shubbhangiwahane/" },
-                  { name: "LinkedIn", href: "https://www.linkedin.com/in/shubhangi-wahane/" },
+                  {
+                    name: "Instagram",
+                    href: "https://www.instagram.com/shubbhangiwahane/",
+                  },
+                  {
+                    name: "LinkedIn",
+                    href: "https://www.linkedin.com/in/shubhangi-wahane/",
+                  },
                 ].map((social) => (
                   <a
                     key={social.name}
