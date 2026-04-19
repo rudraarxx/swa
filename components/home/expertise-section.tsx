@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Hexagon, Layers, Maximize, MousePointer2, Wind } from "lucide-react";
+import { ArrowRight, Hexagon, Layers, Maximize, MousePointer2, Paintbrush, Wind } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -19,11 +19,11 @@ const expertiseAreas = [
     offset: 0,
   },
   {
-    title: "Urban Design",
-    icon: <Layers size={24} />,
-    image: "/images/expertise/urban.png",
-    description: "Reimagining the urban fabric through systemic thinking—we design micro-cities and public realms that foster community, connectivity, and collective wellbeing.",
-    services: ["Master Planning", "Public Realm Design", "Mobility Integration"],
+    title: "Interior Design",
+    icon: <Paintbrush size={24} />,
+    image: "/images/expertise/interior.png",
+    description: "Curating internal landscapes where functionality meets aesthetics. We design bespoke interiors that reflect the occupant's identity while optimizing comfort, flow, and material expression.",
+    services: ["Space Planning", "Material Direction", "Bespoke Furniture"],
     offset: 100,
   },
   {
@@ -170,7 +170,7 @@ export function ExpertiseSection() {
                       src={area.image}
                       alt={area.title}
                       fill
-                      className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                      className="object-cover transition-transform duration-1000 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-8 left-8">

@@ -4,16 +4,10 @@
     "title": "House Of Trails",
     "category": "Residential",
     "location": "Nagpur, India",
-    "year": "2024",
+    "year": "2026",
     "slug": "house-of-trails",
-    "clientName": "—",
     "description": "House Of Trails — a bespoke residence where architecture becomes a daily experience, weaving natural light, open volumes, and curated materiality into the rhythm of home.",
-    "tags": [
-      "Residential",
-      "Bespoke",
-      "Natural Light",
-      "Open Plan"
-    ],
+    "tags": ["Residential", "Bespoke", "Natural Light", "Open Plan"],
     "featured": true,
     "featuredImage": "https://drive.google.com/file/d/1Fzt_U62Jpx7zM0ioU0JoTAgqpdO4ziAp/view?usp=drivesdk",
     "images": [
@@ -65,7 +59,6 @@
       "https://drive.google.com/file/d/1ubMJKXzoxViqO3FdGTkG_s6GVbgoPudf/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Exposed Brick",
       "Teak Wood",
@@ -75,19 +68,13 @@
   },
   {
     "id": 2,
-    "title": "Sharad Chourpagare Residence",
+    "title": "Arched Home, Nagpur",
     "category": "Residential Interior",
     "location": "Nagpur, India",
-    "year": "2024",
+    "year": "2025",
     "slug": "sharad-chourpagare",
-    "clientName": "Sharad Chourpagare",
     "description": "A thoughtfully designed private residence for Sharad Chourpagare, where contemporary elegance meets everyday warmth — refined surfaces, ambient lighting, and spaces that breathe.",
-    "tags": [
-      "Interior Design",
-      "Contemporary",
-      "Luxury",
-      "Residential"
-    ],
+    "tags": ["Interior Design", "Contemporary", "Luxury", "Residential"],
     "featured": true,
     "featuredImage": "https://drive.google.com/file/d/1LRXXbIGvGZB6Z7m43nTeaTeTbnmNJ0Km/view?usp=drivesdk",
     "images": [
@@ -102,7 +89,6 @@
       "https://drive.google.com/file/d/1lbM85-uCPLRT8NbD7EHfT8YLxJb_lz5i/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Fluted Wood Panels",
       "Marble Flooring",
@@ -112,19 +98,13 @@
   },
   {
     "id": 3,
-    "title": "William Francis Residence",
+    "title": "The Francis House, Nagpur",
     "category": "Residential Interior",
     "location": "Nagpur, India",
-    "year": "2024",
+    "year": "2025",
     "slug": "william-francis",
-    "clientName": "William Francis",
     "description": "A thoughtfully designed private residence for William Francis, where contemporary elegance meets everyday warmth — refined surfaces, ambient lighting, and spaces that breathe.",
-    "tags": [
-      "Interior Design",
-      "Contemporary",
-      "Luxury",
-      "Residential"
-    ],
+    "tags": ["Interior Design", "Contemporary", "Luxury", "Residential"],
     "featured": true,
     "featuredImage": "https://drive.google.com/file/d/1rGbrtw4c8Rb2qhADxNSXCSIJjQfJJ-Gs/view?usp=drivesdk",
     "images": [
@@ -139,7 +119,6 @@
       "https://drive.google.com/file/d/1WRA6Npm2o_TARktWkxnDWZdpGlOMWo-B/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Fluted Wood Panels",
       "Marble Flooring",
@@ -149,19 +128,13 @@
   },
   {
     "id": 4,
-    "title": "Rakesh Tekkam Residence",
+    "title": "The Beige Story, Kesar Gold Nagpur",
     "category": "Residential Interior",
     "location": "Nagpur, India",
     "year": "2024",
     "slug": "rakesh-tekkam",
-    "clientName": "Rakesh Tekkam",
     "description": "A thoughtfully designed private residence for Rakesh Tekkam, where contemporary elegance meets everyday warmth — refined surfaces, ambient lighting, and spaces that breathe.",
-    "tags": [
-      "Interior Design",
-      "Contemporary",
-      "Luxury",
-      "Residential"
-    ],
+    "tags": ["Interior Design", "Contemporary", "Luxury", "Residential"],
     "featured": false,
     "featuredImage": "https://drive.google.com/file/d/1FJG1Ff14Jbb5QnqxCoA34t88kv3ovZ8V/view?usp=drivesdk",
     "images": [
@@ -192,7 +165,6 @@
       "https://drive.google.com/file/d/1YMRinZvXF6XJ4goMaF9NSyI3TX1QK5Cg/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Fluted Wood Panels",
       "Marble Flooring",
@@ -202,19 +174,13 @@
   },
   {
     "id": 5,
-    "title": "Parag Hudkeshwar Residence",
+    "title": "The N, Nagpur",
     "category": "Residential Interior",
     "location": "Nagpur, India",
-    "year": "2024",
+    "year": "2025",
     "slug": "parag-hudkeshwar",
-    "clientName": "Parag Hudkeshwar",
     "description": "A thoughtfully designed private residence for Parag Hudkeshwar, where contemporary elegance meets everyday warmth — refined surfaces, ambient lighting, and spaces that breathe.",
-    "tags": [
-      "Interior Design",
-      "Contemporary",
-      "Luxury",
-      "Residential"
-    ],
+    "tags": ["Interior Design", "Contemporary", "Luxury", "Residential"],
     "featured": false,
     "featuredImage": "https://drive.google.com/file/d/1XRWZYaZGy316jv8M1vOcjxJU534YTUIK/view?usp=drivesdk",
     "images": [
@@ -226,7 +192,6 @@
       "https://drive.google.com/file/d/1mdfiTUN-D0660Om7N9hEraxBDZs9FUcF/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Fluted Wood Panels",
       "Marble Flooring",
@@ -236,19 +201,13 @@
   },
   {
     "id": 6,
-    "title": "Nidhi Clinic",
+    "title": "Pulse Clinic, Nagpur",
     "category": "Healthcare",
     "location": "Nagpur, India",
-    "year": "2024",
+    "year": "2025",
     "slug": "nidhi-clinic",
-    "clientName": "—",
     "description": "A modern healthcare facility designed for Nidhi Clinic, blending clinical precision with warm, patient-centered interiors that put comfort at the forefront.",
-    "tags": [
-      "Healthcare",
-      "Modern",
-      "Functional Design",
-      "Patient-Centric"
-    ],
+    "tags": ["Healthcare", "Modern", "Functional Design", "Patient-Centric"],
     "featured": false,
     "featuredImage": "https://drive.google.com/file/d/1_E3_9GSRgEjaGdJ6TuarZWIgCYG0W-CY/view?usp=drivesdk",
     "images": [
@@ -259,7 +218,6 @@
       "https://drive.google.com/file/d/1Z5bGOFiODAF67KoVNSfaq7vsv41wDcAF/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Vitrified Tiles",
       "Laminate Panels",
@@ -269,19 +227,13 @@
   },
   {
     "id": 7,
-    "title": "Milind Ukey Residence",
+    "title": "The Roman Home, Nagpur",
     "category": "Residential Interior",
     "location": "Nagpur, India",
-    "year": "2024",
+    "year": "2025",
     "slug": "milind-ukey",
-    "clientName": "Milind Ukey",
     "description": "A thoughtfully designed private residence for Milind Ukey, where contemporary elegance meets everyday warmth — refined surfaces, ambient lighting, and spaces that breathe.",
-    "tags": [
-      "Interior Design",
-      "Contemporary",
-      "Luxury",
-      "Residential"
-    ],
+    "tags": ["Interior Design", "Contemporary", "Luxury", "Residential"],
     "featured": false,
     "featuredImage": "https://drive.google.com/file/d/1PUX_Q4sSN4kUwFc1WOaqhzs4qRqUrQft/view?usp=drivesdk",
     "images": [
@@ -298,7 +250,6 @@
       "https://drive.google.com/file/d/1NPCxz43b9koHDDynDXhJTnd3yxTh0Pxb/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Fluted Wood Panels",
       "Marble Flooring",
@@ -308,19 +259,13 @@
   },
   {
     "id": 8,
-    "title": "Khaperkheda Gym",
+    "title": "JB Fitness, Nagpur",
     "category": "Commercial Fitness",
     "location": "Nagpur, India",
-    "year": "2024",
+    "year": "2025",
     "slug": "khaperkheda-gym",
-    "clientName": "—",
     "description": "A high-energy fitness space at Khaperkheda Gym, where industrial raw finishes meet bold lighting to inspire movement and push beyond limits.",
-    "tags": [
-      "Fitness",
-      "Industrial",
-      "Bold Design",
-      "Commercial"
-    ],
+    "tags": ["Fitness", "Industrial", "Bold Design", "Commercial"],
     "featured": false,
     "featuredImage": "https://drive.google.com/file/d/1cUAfQCEOg90LmknkmBmL9NX3ighPbvNL/view?usp=drivesdk",
     "images": [
@@ -342,7 +287,6 @@
       "https://drive.google.com/file/d/1csjBp7c4ameX86q3KN45rYJj3aN-gocY/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Exposed Concrete",
       "Rubber Flooring",
@@ -352,19 +296,13 @@
   },
   {
     "id": 9,
-    "title": "Hemant Avasthi Chowk",
+    "title": "Heritage Blend, Nagpur",
     "category": "Urban Design",
     "location": "Nagpur, India",
-    "year": "2024",
+    "year": "2026",
     "slug": "hemant-avasthi-chowk",
-    "clientName": "—",
     "description": "An urban intervention for Hemant Avasthi Chowk — reimagining public space through considered material choices, shaded gathering zones, and pedestrian-first design.",
-    "tags": [
-      "Urban Design",
-      "Public Space",
-      "Landscape",
-      "Community"
-    ],
+    "tags": ["Urban Design", "Public Space", "Landscape", "Community"],
     "featured": false,
     "featuredImage": "https://drive.google.com/file/d/1wY1bJFRLMbvNr98TICQYfiEE2QCxCKPw/view?usp=drivesdk",
     "images": [
@@ -386,7 +324,6 @@
       "https://drive.google.com/file/d/1NtGg5OBsqzWtiLSTD31YmfpPyYNyUeaU/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Paver Blocks",
       "Corten Steel",
@@ -396,19 +333,13 @@
   },
   {
     "id": 10,
-    "title": "Mumbai",
+    "title": "Regal Residence, Mumbai",
     "category": "Residential",
     "location": "Mumbai, India",
-    "year": "2024",
+    "year": "2026",
     "slug": "mumbai",
-    "clientName": "—",
     "description": "A metropolitan residence in Mumbai, crafted as a sanctuary within the urban pulse — where panoramic views, layered textures, and quiet luxury converge.",
-    "tags": [
-      "Urban Living",
-      "Contemporary",
-      "Luxury",
-      "Metropolitan"
-    ],
+    "tags": ["Urban Living", "Contemporary", "Luxury", "Metropolitan"],
     "featured": false,
     "featuredImage": "https://drive.google.com/file/d/19PSx7mvdra0ZT8w8uXKSqkP4dEynlsj1/view?usp=drivesdk",
     "images": [
@@ -436,7 +367,6 @@
       "https://drive.google.com/file/d/1eBepCd4L2mQk_U6KWWoqlynkUb1OHzRq/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Italian Marble",
       "Tinted Glass",
@@ -446,19 +376,13 @@
   },
   {
     "id": 11,
-    "title": "Dayanand Pandey Residence",
+    "title": "Horizon House for Mr. Pandey, Kesar Gateway Nagpur",
     "category": "Residential Interior",
     "location": "Nagpur, India",
-    "year": "2024",
+    "year": "2025",
     "slug": "dayanand-pandey",
-    "clientName": "Dayanand Pandey",
     "description": "A thoughtfully designed private residence for Dayanand Pandey, where contemporary elegance meets everyday warmth — refined surfaces, ambient lighting, and spaces that breathe.",
-    "tags": [
-      "Interior Design",
-      "Contemporary",
-      "Luxury",
-      "Residential"
-    ],
+    "tags": ["Interior Design", "Contemporary", "Luxury", "Residential"],
     "featured": false,
     "featuredImage": "https://drive.google.com/file/d/1IZZS4QEqC2PZ9M_UXRzL9YEmEpJjJt5Y/view?usp=drivesdk",
     "images": [
@@ -475,7 +399,6 @@
       "https://drive.google.com/file/d/1s_8Gxhr28p9dXL-sUExX1xOMIrLSGTei/view?usp=drivesdk"
     ],
     "area": "—",
-    "status": "Completed",
     "materials": [
       "Fluted Wood Panels",
       "Marble Flooring",

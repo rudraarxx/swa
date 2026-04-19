@@ -36,7 +36,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             src={imageUrl}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale"
+            className="object-cover transition-transform duration-700 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105"
             unoptimized={project.featuredImage.includes("drive.google.com")}
           />
 
@@ -57,9 +57,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
             <p className="text-sm font-sans tracking-wide text-structure/60 uppercase">
               {project.category} <span className="mx-1">/</span> {project.location}
-            </p>
-            <p className="text-xs font-sans text-structure/40">
-              Client: {project.clientName}
             </p>
           </div>
           <span className="text-sm font-sans text-structure/40">

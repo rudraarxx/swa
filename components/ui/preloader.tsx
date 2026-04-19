@@ -60,25 +60,7 @@ export function Preloader() {
           }}
           className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-canvas overflow-hidden"
         >
-          {/* Cinematic Background Video */}
-          <motion.div
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 0.2, scale: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
-            className="absolute inset-0 w-full h-full pointer-events-none"
-          >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover blur-sm grayscale contrast-125"
-            >
-              <source src="/kling_20260328_VIDEO_Image1A_cl_4659_0.mp4" type="video/mp4" />
-            </video>
-            {/* Subtle Gradient Overlay for readability */}
-            <div className="absolute inset-0 bg-linear-to-b from-canvas/40 via-transparent to-canvas/40" />
-          </motion.div>
+
 
           <div className="relative flex flex-col items-center">
             {/* Logo Animation */}

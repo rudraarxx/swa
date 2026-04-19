@@ -85,7 +85,7 @@ export function PostHero({ post }: PostHeroProps) {
               src={post.image}
               alt={post.title}
               fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+              className="object-cover md:grayscale hover:md:grayscale-0 transition-all duration-1000"
               priority
             />
           </motion.div>

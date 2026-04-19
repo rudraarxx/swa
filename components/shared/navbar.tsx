@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   motion,
   AnimatePresence,
@@ -13,6 +14,8 @@ import Link from "next/link";
 import { BrandLogo } from "@/icons/brandLogo";
 
 export function Navbar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const { isMenuOpen, setMenuOpen } = useGravity();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -57,10 +60,10 @@ export function Navbar() {
                 <BrandLogo className="w-full h-auto" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] leading-tight font-sans tracking-widest uppercase font-bold text-background">
+                <span className={`text-[10px] leading-tight font-sans tracking-widest uppercase font-bold ${isHomePage ? "text-background" : "text-structure"}`}>
                   Shubhangi Wahane
                 </span>
-                <span className="text-[10px] leading-tight font-sans tracking-widest uppercase text-background/60">
+                <span className={`text-[10px] leading-tight font-sans tracking-widest uppercase ${isHomePage ? "text-background/60" : "text-structure/60"}`}>
                   Architects
                 </span>
               </div>
@@ -105,7 +108,11 @@ export function Navbar() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-structure hover:bg-structure hover:text-white transition-all shadow-sm border border-structure/5"
+                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-sm border ${
+                    isHomePage 
+                      ? "bg-white text-structure hover:bg-structure hover:text-white border-structure/5" 
+                      : "bg-structure text-background hover:bg-primary hover:text-white border-white/10"
+                  }`}
                 >
                   <Icon size={16} />
                 </a>

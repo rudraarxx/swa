@@ -27,7 +27,7 @@ export function BlogCard({ post }: BlogCardProps) {
             src={post.image}
             alt={post.title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale"
+            className="object-cover transition-transform duration-700 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105"
           />
           <div className="absolute top-4 left-4 z-20">
             <span className="px-3 py-1 bg-background/90 backdrop-blur-md text-[10px] uppercase tracking-widest font-sans font-bold text-structure rounded-full">

@@ -7,14 +7,12 @@ export interface Project {
   location: string;
   year: string;
   slug: string;
-  clientName: string;
   description: string;
   tags: string[];
   featured: boolean;
   featuredImage: string;
   images: string[];
   area: string;
-  status: string;
   materials: string[];
 }
 
