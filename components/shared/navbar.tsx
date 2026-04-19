@@ -57,10 +57,10 @@ export function Navbar() {
                 <BrandLogo className="w-full h-auto" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] leading-tight font-sans tracking-widest uppercase font-bold text-structure">
+                <span className="text-[10px] leading-tight font-sans tracking-widest uppercase font-bold text-background">
                   Shubhangi Wahane
                 </span>
-                <span className="text-[10px] leading-tight font-sans tracking-widest uppercase text-structure/60">
+                <span className="text-[10px] leading-tight font-sans tracking-widest uppercase text-background/60">
                   Architects
                 </span>
               </div>
@@ -91,8 +91,14 @@ export function Navbar() {
             {/* Right: Socials & Contact */}
             <div className="pointer-events-auto flex items-center gap-3">
               {[
-                { Icon: Instagram, href: "https://www.instagram.com/shubbhangiwahane/" },
-                { Icon: Linkedin, href: "https://www.linkedin.com/in/shubhangi-wahane/" },
+                {
+                  Icon: Instagram,
+                  href: "https://www.instagram.com/shubbhangiwahane/",
+                },
+                {
+                  Icon: Linkedin,
+                  href: "https://www.linkedin.com/in/shubhangi-wahane/",
+                },
               ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
@@ -104,7 +110,7 @@ export function Navbar() {
                   <Icon size={16} />
                 </a>
               ))}
-              
+
               <a
                 href={`https://wa.me/917738700860?text=${encodeURIComponent("Hi Shubhangi, I'm interested in discussing a project. Can we connect?")}`}
                 target="_blank"
