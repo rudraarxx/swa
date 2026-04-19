@@ -97,7 +97,8 @@ export function Chatbot() {
             {/* Messages */}
             <div 
               ref={scrollRef}
-              className="flex-1 overflow-y-auto p-5 space-y-4 scrollbar-thin scrollbar-thumb-secondary/20"
+              data-lenis-prevent
+              className="flex-1 overflow-y-auto p-5 space-y-4 scrollbar-thin scrollbar-thumb-secondary/20 overscroll-contain"
             >
               {messages.map((msg) => (
                 <div
