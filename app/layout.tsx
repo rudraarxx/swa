@@ -4,6 +4,7 @@ import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { Cursor } from "@/components/ui/cursor";
 import { Preloader } from "@/components/ui/preloader";
+import { Chatbot } from "@/components/ui/chatbot";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -110,6 +111,7 @@ export default function RootLayout({
         />
         <Preloader />
         <Cursor />
+        <Chatbot />
         <SmoothScroll>
           <MainLayout>
             {children}
